@@ -269,5 +269,19 @@ namespace Ferreteria
             this.pxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
             //  this.pxImagen.Image = global::CapaPresentacion.Properties.Resources.premiosya;
         }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        //METODOS PARA CERRAR,MAXIMIZAR, MINIMIZAR FORMULARIO------------------------------------------------------
+        int lx, ly;
+        int sw, sh;
+        private void btnnormal_Click(object sender, EventArgs e)
+        {
+            this.Size = new Size(sw, sh);
+            this.Location = new Point(lx, ly);
+            btnnormal.Visible = true ;
+        }
     }
  }
