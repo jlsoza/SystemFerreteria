@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 
 namespace CapaDatos
 {
@@ -16,7 +17,7 @@ namespace CapaDatos
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
 
-        public DataTable Mostrar()
+        public DataTable MostrarCategoria()
         {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "Sp_MostrarCategorias";
@@ -42,7 +43,7 @@ namespace CapaDatos
             return tabla;
         }
 
-        public void InsertarCategoria(string Codigo_Cat, string Nombre_Cat, string Descripcion_Cat, byte Estado_Categoria)
+        public void InsertarCategoria(string Codigo_Cat, string Nombre_Cat, string Descripcion_Cat, byte Estado_Categoria, string Fecha, byte[] Imagen)
         {
             //PROCEDIMIENTO
             comando.Connection = conexion.AbrirConexion();
@@ -51,13 +52,15 @@ namespace CapaDatos
             comando.Parameters.AddWithValue("@Codigo_Cat", Codigo_Cat);
             comando.Parameters.AddWithValue("@Nombre_Cat", Nombre_Cat);
             comando.Parameters.AddWithValue("@Descripcion_Cat", Descripcion_Cat);
+            comando.Parameters.AddWithValue("@Fecha", Fecha);
             comando.Parameters.AddWithValue("@Estado_Categoria", Estado_Categoria);
+            comando.Parameters.AddWithValue("@Imagen", Imagen);
             comando.ExecuteNonQuery();
 
             comando.Parameters.Clear();
         }
 
-        public void EditarCategorias(int Id_Cat,string Codigo_Cat, string Nombre_Cat, string Descripcion_Cat, byte Estado_Categoria)
+        public void EditarCategorias(int Id_Cat,string Codigo_Cat, string Nombre_Cat, string Descripcion_Cat, byte Estado_Categoria, string Fecha, byte[] Imagen)
         {
             //PROCEDIMIENTO
             comando.Connection = conexion.AbrirConexion();
@@ -67,8 +70,9 @@ namespace CapaDatos
             comando.Parameters.AddWithValue("@Codigo_Cat", Codigo_Cat);
             comando.Parameters.AddWithValue("@Nombre_Cat", Nombre_Cat);
             comando.Parameters.AddWithValue("@Descripcion_Cat", Descripcion_Cat);
+            comando.Parameters.AddWithValue("@Fecha", Fecha);
             comando.Parameters.AddWithValue("@Estado_Categoria", Estado_Categoria);
-
+            comando.Parameters.AddWithValue("@Imagen", Imagen);
             comando.ExecuteNonQuery();
 
             comando.Parameters.Clear();

@@ -51,8 +51,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Catalogos\Frm_Categoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Frm_Categoria.Designer.cs">
+      <DependentUpon>Frm_Categoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Catalogos\Frm_Categoria.resx">
+      <DependentUpon>Frm_Categoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -74,6 +83,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{2812e7cc-8dfb-4f85-b75f-151ff1ee5153}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapadeNegocio\CapadeNegocio.csproj">
+      <Project>{9f7d5fb7-ac77-4ac0-9f31-c382da5577fd}</Project>
+      <Name>CapadeNegocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
