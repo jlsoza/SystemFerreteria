@@ -56,6 +56,35 @@ namespace CapaDatos
 
             comando.Parameters.Clear();
         }
+
+        public void EditarCategorias(int Id_Cat,string Codigo_Cat, string Nombre_Cat, string Descripcion_Cat, byte Estado_Categoria)
+        {
+            //PROCEDIMIENTO
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "Sp_EditarCategorias";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@Id_Cat", Id_Cat);
+            comando.Parameters.AddWithValue("@Codigo_Cat", Codigo_Cat);
+            comando.Parameters.AddWithValue("@Nombre_Cat", Nombre_Cat);
+            comando.Parameters.AddWithValue("@Descripcion_Cat", Descripcion_Cat);
+            comando.Parameters.AddWithValue("@Estado_Categoria", Estado_Categoria);
+
+            comando.ExecuteNonQuery();
+
+            comando.Parameters.Clear();
+        }
+        public void EliminarCategoria(int Id_Cat)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "Sp_EliminarCategoria";
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@Id_Cat", Id_Cat);
+
+            comando.ExecuteNonQuery();
+
+            comando.Parameters.Clear();
+        }
     }
 
 
