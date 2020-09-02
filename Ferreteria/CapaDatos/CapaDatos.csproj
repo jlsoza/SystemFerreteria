@@ -44,7 +44,13 @@
   <ItemGroup>
     <Compile Include="CDProveedor.cs" />
     <Compile Include="CD_Categorias.cs" />
+    <Compile Include="CD_Cliente.cs" />
+    <Compile Include="CD_Moneda.cs" />
+    <Compile Include="CD_Sucursal.cs" />
     <Compile Include="CD_TipoDocumento.cs" />
+    <Compile Include="CD_TipoMovimiento.cs" />
+    <Compile Include="CD_TipoPago.cs" />
+    <Compile Include="CD_UnidadM.cs" />
     <Compile Include="ConexionBD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
