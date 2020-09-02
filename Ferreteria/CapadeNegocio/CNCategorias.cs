@@ -12,7 +12,10 @@ namespace CapadeNegocio
     public class CNCategorias
     {
         private CD_Categorias objetoCD = new CD_Categorias();
-
+        /// <summary>
+        /// //
+        /// </summary>
+        /// <returns></returns>
         public DataTable Mostrarcategorias()
         {
             DataTable tabla = new DataTable();
