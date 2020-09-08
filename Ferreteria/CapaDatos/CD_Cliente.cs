@@ -42,7 +42,7 @@ namespace CapaDatos
             return tabla;
         }
 
-        public void InsertarCliente(string Id_TipDoc, string NumeroDoc_Cliente, string Nombre_Cliente, byte Estado_Cliente, string FechaNac_Cliente,string Sexo_Cliente,string Telefono_Cliente,string Celular_Cliente,string Correo_Cliente,string Direccion_Cliente, string FechCreacion_Cliente, byte[] Foto)
+        public void InsertarCliente(int Id_TipDoc, string NumeroDoc_Cliente, string Nombre_Cliente, string FechaNac_Cliente, string Sexo_Cliente, string Telefono_Cliente, string Celular_Cliente, string Correo_Cliente,string Direccion_Cliente, byte Estado_Cliente, string FechCreacion_Cliente, byte[] Foto)
         {
             //PROCEDIMIENTO
             comando.Connection = conexion.AbrirConexion();

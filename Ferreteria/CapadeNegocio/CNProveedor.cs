@@ -6,11 +6,36 @@ using System.Threading.Tasks;
 using CapaDatos;
 using System.Data;
 using System.Data.SqlClient;
+using Entidades;
 
 namespace CapadeNegocio
 {
     public class CNProveedor
     {
+
+        private static readonly CNProveedor _intancia = new CNProveedor();
+        public static CNProveedor Instancia
+        {
+            get { return CNProveedor._intancia; }
+        }
+
+        public List<E_Proveedor> ListaProveedor()
+        {
+            try
+            {
+                return CDProveedor.Instancia.ListarProveedor();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
+
+
+
+
 
         private CDProveedor objetoCD = new CDProveedor();
         /// <summary>

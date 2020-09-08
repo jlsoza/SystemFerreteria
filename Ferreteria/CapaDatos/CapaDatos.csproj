@@ -46,6 +46,7 @@
     <Compile Include="CD_Categorias.cs" />
     <Compile Include="CD_Cliente.cs" />
     <Compile Include="CD_Moneda.cs" />
+    <Compile Include="CD_Producto.cs" />
     <Compile Include="CD_Sucursal.cs" />
     <Compile Include="CD_TipoDocumento.cs" />
     <Compile Include="CD_TipoMovimiento.cs" />
@@ -53,7 +54,14 @@
     <Compile Include="CD_UnidadM.cs" />
     <Compile Include="ConexionBD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\Configuration\ConfigurationManager.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{8533d77f-6507-4633-8b5f-bfe5ebb8528a}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

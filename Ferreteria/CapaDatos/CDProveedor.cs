@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using Entidades;
 
 namespace CapaDatos
 {
@@ -12,6 +13,49 @@ namespace CapaDatos
     {
 
         private ConexionBD conexion = new ConexionBD();
+        private static readonly CDProveedor _intancia = new CDProveedor();
+        public static CDProveedor Instancia
+        {
+            get { return CDProveedor._intancia; }
+        }
+
+        public List<E_Proveedor> ListarProveedor()
+        {
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            List<E_Proveedor> Lista = null;
+            try
+            {
+                SqlConnection cn = ConexionBD.Instancia.Conectar();
+                cmd = new SqlCommand("spListarProveedorCombo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
+                Lista = new List<E_Proveedor>();
+                while (dr.Read())
+                {
+                    E_Proveedor pr = new E_Proveedor();
+                    pr.Id_Proveedor = Convert.ToInt32(dr["Id_Proveedor"]);
+                    pr.Cod_Proveedor = dr["Cod_Proveedor"].ToString();
+                    pr.RazSocial_Proveedor = dr["RazSocial_Proveedor"].ToString();
+                    pr.Ruc_Proveedor = dr["Ruc_Proveedor"].ToString();
+                    //pr.Direccion_Proveedor = dr["Direccion_Proveedor"].ToString();
+                    //pr.Telefono_Proveedor = dr["Telefono_Proveedor"].ToString();
+                    //pr.Celular_Proveedor = dr["Celular_Proveedor"].ToString();
+                    //pr.Correo_Proveedor = dr["Correo_Proveedor"].ToString();
+                    //pr.Estado_Proveedor = Convert.ToInt32(dr["Estado_Proveedor"]);
+                    Lista.Add(pr);
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return Lista;
+        }
 
         SqlDataReader leer;
         DataTable tabla = new DataTable();

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using Entidades;
 
 namespace CapaDatos
 {
@@ -15,6 +16,45 @@ namespace CapaDatos
         SqlDataReader leer;
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
+
+        private static readonly CD_TipoDocumento _intancia = new CD_TipoDocumento();
+        public static CD_TipoDocumento Instancia
+        {
+            get { return CD_TipoDocumento._intancia; }
+        }
+
+
+        public List<E_TipoDoc> ListarTipoDoc()
+        {
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            List<E_TipoDoc> Lista = null;
+            try
+            {
+                SqlConnection cn = ConexionBD.Instancia.Conectar();
+                cmd = new SqlCommand("spListarTipDocCombo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
+                Lista = new List<E_TipoDoc>();
+                while (dr.Read())
+                {
+                    E_TipoDoc um = new E_TipoDoc();
+                    um.Id_TipDoc = Convert.ToInt32(dr["Id_TipDoc"]);
+                    um.Nombre_TipDoc = dr["Nombre_TipDoc"].ToString();
+                    um.Abreviatura_TipDoc = dr["Abreviatura_TipDoc"].ToString();
+                    Lista.Add(um);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return Lista;
+        }
+
 
         public DataTable MostrarTipoDoc()
         {

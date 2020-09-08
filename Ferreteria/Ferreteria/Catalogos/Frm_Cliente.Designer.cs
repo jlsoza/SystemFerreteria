@@ -1,6 +1,6 @@
 ﻿namespace Ferreteria
 {
-    partial class Frm_Proveedor
+    partial class Frm_Cliente
     {
         /// <summary>
         /// Required designer variable.
@@ -32,17 +32,26 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Proveedor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Cliente));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnguardado = new System.Windows.Forms.Button();
+            this.btnWebcam = new System.Windows.Forms.Button();
+            this.cbxDispositivo = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dtpfecha = new System.Windows.Forms.DateTimePicker();
+            this.Guardar = new System.Windows.Forms.Button();
+            this.Nuevo = new System.Windows.Forms.Button();
+            this.bteditar = new System.Windows.Forms.Button();
+            this.Eliminar = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.rbFemenino = new System.Windows.Forms.RadioButton();
+            this.rbMasculino = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
             this.txtcorreo = new System.Windows.Forms.TextBox();
             this.txtcelular = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txttelefono = new System.Windows.Forms.TextBox();
-            this.txtruc = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.labelContador = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -50,27 +59,16 @@
             this.pxImagen = new System.Windows.Forms.PictureBox();
             this.btnbuscar = new System.Windows.Forms.Button();
             this.txtFiltro = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btneliminar = new System.Windows.Forms.Button();
-            this.btneditar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
             this.dgwProveedor = new System.Windows.Forms.DataGridView();
-            this.Cod_Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RazSocial_Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ruc_Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direccion_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono_Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Celular_Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo_Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Imagen = new System.Windows.Forms.DataGridViewImageColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.txtdireccion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtRazSocial_Proveedor = new System.Windows.Forms.TextBox();
+            this.txtcliente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtCod_Proveedor = new System.Windows.Forms.TextBox();
+            this.txtnumerodoc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtId_Proveedor = new System.Windows.Forms.TextBox();
+            this.txtId_Cliente = new System.Windows.Forms.TextBox();
+            this.Estado = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnnormal = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
@@ -78,6 +76,21 @@
             this.btnLogo = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmbtipodoc = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.dtpfechaN = new System.Windows.Forms.DateTimePicker();
+            this.Nombre_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sexo_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaNac_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Celular_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre_TipDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumeroDoc_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechCreacion_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Foto = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pxImagen)).BeginInit();
@@ -99,14 +112,27 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnguardado);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.dtpfechaN);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.cmbtipodoc);
+            this.groupBox1.Controls.Add(this.btnWebcam);
+            this.groupBox1.Controls.Add(this.cbxDispositivo);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.dtpfecha);
+            this.groupBox1.Controls.Add(this.Guardar);
+            this.groupBox1.Controls.Add(this.Nuevo);
+            this.groupBox1.Controls.Add(this.bteditar);
+            this.groupBox1.Controls.Add(this.Eliminar);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.rbFemenino);
+            this.groupBox1.Controls.Add(this.rbMasculino);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtcorreo);
             this.groupBox1.Controls.Add(this.txtcelular);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txttelefono);
-            this.groupBox1.Controls.Add(this.txtruc);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.labelContador);
             this.groupBox1.Controls.Add(this.button2);
@@ -114,19 +140,16 @@
             this.groupBox1.Controls.Add(this.pxImagen);
             this.groupBox1.Controls.Add(this.btnbuscar);
             this.groupBox1.Controls.Add(this.txtFiltro);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.btneliminar);
-            this.groupBox1.Controls.Add(this.btneditar);
-            this.groupBox1.Controls.Add(this.btnNuevo);
             this.groupBox1.Controls.Add(this.dgwProveedor);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtdireccion);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtRazSocial_Proveedor);
+            this.groupBox1.Controls.Add(this.txtcliente);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtCod_Proveedor);
+            this.groupBox1.Controls.Add(this.txtnumerodoc);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtId_Proveedor);
+            this.groupBox1.Controls.Add(this.txtId_Cliente);
+            this.groupBox1.Controls.Add(this.Estado);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Yellow;
             this.groupBox1.Location = new System.Drawing.Point(12, 54);
@@ -136,32 +159,159 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registro";
             // 
-            // btnguardado
+            // btnWebcam
             // 
-            this.btnguardado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnguardado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.btnguardado.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnguardado.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnguardado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.btnguardado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.btnguardado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnguardado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnguardado.ForeColor = System.Drawing.Color.Yellow;
-            this.btnguardado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnguardado.Location = new System.Drawing.Point(276, 559);
-            this.btnguardado.Name = "btnguardado";
-            this.btnguardado.Size = new System.Drawing.Size(100, 30);
-            this.btnguardado.TabIndex = 184;
-            this.btnguardado.Text = "Guardar";
-            this.btnguardado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnguardado.UseVisualStyleBackColor = false;
-            this.btnguardado.Click += new System.EventHandler(this.btnguardado_Click);
+            this.btnWebcam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnWebcam.BackColor = System.Drawing.Color.Maroon;
+            this.btnWebcam.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnWebcam.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnWebcam.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
+            this.btnWebcam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
+            this.btnWebcam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWebcam.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWebcam.ForeColor = System.Drawing.Color.Yellow;
+            this.btnWebcam.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnWebcam.Location = new System.Drawing.Point(524, 365);
+            this.btnWebcam.Name = "btnWebcam";
+            this.btnWebcam.Size = new System.Drawing.Size(84, 30);
+            this.btnWebcam.TabIndex = 225;
+            this.btnWebcam.Text = "WebCam";
+            this.btnWebcam.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnWebcam.UseVisualStyleBackColor = false;
+            this.btnWebcam.Click += new System.EventHandler(this.btnWebcam_Click);
+            // 
+            // cbxDispositivo
+            // 
+            this.cbxDispositivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxDispositivo.FormattingEnabled = true;
+            this.cbxDispositivo.Location = new System.Drawing.Point(641, 28);
+            this.cbxDispositivo.Name = "cbxDispositivo";
+            this.cbxDispositivo.Size = new System.Drawing.Size(145, 26);
+            this.cbxDispositivo.TabIndex = 223;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(456, 35);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 18);
+            this.label6.TabIndex = 219;
+            this.label6.Text = "Fecha";
+            // 
+            // dtpfecha
+            // 
+            this.dtpfecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpfecha.Location = new System.Drawing.Point(511, 29);
+            this.dtpfecha.Name = "dtpfecha";
+            this.dtpfecha.Size = new System.Drawing.Size(114, 24);
+            this.dtpfecha.TabIndex = 218;
+            // 
+            // Guardar
+            // 
+            this.Guardar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Guardar.BackColor = System.Drawing.Color.SeaGreen;
+            this.Guardar.FlatAppearance.BorderSize = 0;
+            this.Guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Guardar.ForeColor = System.Drawing.Color.White;
+            this.Guardar.Location = new System.Drawing.Point(129, 29);
+            this.Guardar.Name = "Guardar";
+            this.Guardar.Size = new System.Drawing.Size(100, 30);
+            this.Guardar.TabIndex = 217;
+            this.Guardar.Text = "Guardar";
+            this.Guardar.UseVisualStyleBackColor = false;
+            this.Guardar.Click += new System.EventHandler(this.Guardar_Click);
+            // 
+            // Nuevo
+            // 
+            this.Nuevo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Nuevo.BackColor = System.Drawing.Color.SeaGreen;
+            this.Nuevo.FlatAppearance.BorderSize = 0;
+            this.Nuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.Nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Nuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nuevo.ForeColor = System.Drawing.Color.White;
+            this.Nuevo.Location = new System.Drawing.Point(23, 29);
+            this.Nuevo.Name = "Nuevo";
+            this.Nuevo.Size = new System.Drawing.Size(100, 30);
+            this.Nuevo.TabIndex = 216;
+            this.Nuevo.Text = "Nuevo";
+            this.Nuevo.UseVisualStyleBackColor = false;
+            this.Nuevo.Click += new System.EventHandler(this.Nuevo_Click);
+            // 
+            // bteditar
+            // 
+            this.bteditar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bteditar.BackColor = System.Drawing.Color.SeaGreen;
+            this.bteditar.FlatAppearance.BorderSize = 0;
+            this.bteditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.bteditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bteditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bteditar.ForeColor = System.Drawing.Color.White;
+            this.bteditar.Location = new System.Drawing.Point(235, 28);
+            this.bteditar.Name = "bteditar";
+            this.bteditar.Size = new System.Drawing.Size(100, 30);
+            this.bteditar.TabIndex = 215;
+            this.bteditar.Text = "Editar";
+            this.bteditar.UseVisualStyleBackColor = false;
+            this.bteditar.Click += new System.EventHandler(this.bteditar_Click);
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Eliminar.BackColor = System.Drawing.Color.SeaGreen;
+            this.Eliminar.FlatAppearance.BorderSize = 0;
+            this.Eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Eliminar.ForeColor = System.Drawing.Color.White;
+            this.Eliminar.Location = new System.Drawing.Point(341, 28);
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Size = new System.Drawing.Size(100, 30);
+            this.Eliminar.TabIndex = 214;
+            this.Eliminar.Text = "Eliminar";
+            this.Eliminar.UseVisualStyleBackColor = false;
+            this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(21, 212);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(42, 18);
+            this.label11.TabIndex = 187;
+            this.label11.Text = "Sexo";
+            // 
+            // rbFemenino
+            // 
+            this.rbFemenino.AutoSize = true;
+            this.rbFemenino.Location = new System.Drawing.Point(264, 207);
+            this.rbFemenino.Name = "rbFemenino";
+            this.rbFemenino.Size = new System.Drawing.Size(92, 22);
+            this.rbFemenino.TabIndex = 186;
+            this.rbFemenino.TabStop = true;
+            this.rbFemenino.Text = "Femenino";
+            this.rbFemenino.UseVisualStyleBackColor = true;
+            // 
+            // rbMasculino
+            // 
+            this.rbMasculino.AutoSize = true;
+            this.rbMasculino.Location = new System.Drawing.Point(160, 208);
+            this.rbMasculino.Name = "rbMasculino";
+            this.rbMasculino.Size = new System.Drawing.Size(94, 22);
+            this.rbMasculino.TabIndex = 185;
+            this.rbMasculino.TabStop = true;
+            this.rbMasculino.Text = "Masculino";
+            this.rbMasculino.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(26, 291);
+            this.label10.Location = new System.Drawing.Point(20, 285);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(55, 18);
             this.label10.TabIndex = 183;
@@ -171,25 +321,25 @@
             // 
             this.txtcorreo.BackColor = System.Drawing.Color.White;
             this.txtcorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcorreo.Location = new System.Drawing.Point(158, 285);
+            this.txtcorreo.Location = new System.Drawing.Point(158, 279);
             this.txtcorreo.Name = "txtcorreo";
-            this.txtcorreo.Size = new System.Drawing.Size(388, 24);
+            this.txtcorreo.Size = new System.Drawing.Size(283, 24);
             this.txtcorreo.TabIndex = 182;
             // 
             // txtcelular
             // 
             this.txtcelular.BackColor = System.Drawing.Color.White;
             this.txtcelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcelular.Location = new System.Drawing.Point(401, 248);
+            this.txtcelular.Location = new System.Drawing.Point(319, 241);
             this.txtcelular.Name = "txtcelular";
-            this.txtcelular.Size = new System.Drawing.Size(145, 24);
+            this.txtcelular.Size = new System.Drawing.Size(122, 24);
             this.txtcelular.TabIndex = 181;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(321, 254);
+            this.label9.Location = new System.Drawing.Point(259, 244);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(54, 18);
             this.label9.TabIndex = 180;
@@ -199,7 +349,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(21, 255);
+            this.label8.Location = new System.Drawing.Point(21, 247);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(66, 18);
             this.label8.TabIndex = 179;
@@ -209,25 +359,16 @@
             // 
             this.txttelefono.BackColor = System.Drawing.Color.White;
             this.txttelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttelefono.Location = new System.Drawing.Point(158, 249);
+            this.txttelefono.Location = new System.Drawing.Point(158, 241);
             this.txttelefono.Name = "txttelefono";
-            this.txttelefono.Size = new System.Drawing.Size(145, 24);
+            this.txttelefono.Size = new System.Drawing.Size(96, 24);
             this.txttelefono.TabIndex = 178;
-            // 
-            // txtruc
-            // 
-            this.txtruc.BackColor = System.Drawing.Color.White;
-            this.txtruc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtruc.Location = new System.Drawing.Point(158, 141);
-            this.txtruc.Name = "txtruc";
-            this.txtruc.Size = new System.Drawing.Size(292, 24);
-            this.txtruc.TabIndex = 177;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(705, 327);
+            this.label7.Location = new System.Drawing.Point(356, 377);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 18);
             this.label7.TabIndex = 176;
@@ -238,7 +379,7 @@
             this.labelContador.AutoSize = true;
             this.labelContador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelContador.ForeColor = System.Drawing.Color.Lime;
-            this.labelContador.Location = new System.Drawing.Point(760, 325);
+            this.labelContador.Location = new System.Drawing.Point(411, 375);
             this.labelContador.Name = "labelContador";
             this.labelContador.Size = new System.Drawing.Size(14, 20);
             this.labelContador.TabIndex = 175;
@@ -256,9 +397,9 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Yellow;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(696, 281);
+            this.button2.Location = new System.Drawing.Point(679, 365);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(70, 30);
+            this.button2.Size = new System.Drawing.Size(96, 30);
             this.button2.TabIndex = 174;
             this.button2.Text = "Limpiar";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -268,18 +409,18 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.Maroon;
+            this.button1.BackColor = System.Drawing.Color.Silver;
             this.button1.Cursor = System.Windows.Forms.Cursors.Default;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Yellow;
+            this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(607, 281);
+            this.button1.Location = new System.Drawing.Point(611, 365);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(70, 30);
+            this.button1.Size = new System.Drawing.Size(69, 30);
             this.button1.TabIndex = 173;
             this.button1.Text = "Cargar";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -294,9 +435,9 @@
             this.pxImagen.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.pxImagen.ErrorImage = null;
             this.pxImagen.InitialImage = null;
-            this.pxImagen.Location = new System.Drawing.Point(569, 23);
+            this.pxImagen.Location = new System.Drawing.Point(506, 89);
             this.pxImagen.Name = "pxImagen";
-            this.pxImagen.Size = new System.Drawing.Size(227, 249);
+            this.pxImagen.Size = new System.Drawing.Size(280, 260);
             this.pxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pxImagen.TabIndex = 172;
             this.pxImagen.TabStop = false;
@@ -310,7 +451,7 @@
             this.btnbuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnbuscar.ForeColor = System.Drawing.Color.White;
-            this.btnbuscar.Location = new System.Drawing.Point(189, 324);
+            this.btnbuscar.Location = new System.Drawing.Point(25, 373);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(86, 27);
             this.btnbuscar.TabIndex = 171;
@@ -321,85 +462,12 @@
             // txtFiltro
             // 
             this.txtFiltro.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtFiltro.Location = new System.Drawing.Point(282, 325);
+            this.txtFiltro.Location = new System.Drawing.Point(118, 374);
             this.txtFiltro.MaxLength = 20;
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(228, 24);
             this.txtFiltro.TabIndex = 170;
             this.txtFiltro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFiltro_KeyPress);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(21, 147);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 18);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "Ruc";
-            // 
-            // btneliminar
-            // 
-            this.btneliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btneliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.btneliminar.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btneliminar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btneliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.btneliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.btneliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btneliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btneliminar.ForeColor = System.Drawing.Color.Yellow;
-            this.btneliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btneliminar.Location = new System.Drawing.Point(488, 559);
-            this.btneliminar.Name = "btneliminar";
-            this.btneliminar.Size = new System.Drawing.Size(100, 30);
-            this.btneliminar.TabIndex = 22;
-            this.btneliminar.Text = "Eliminar";
-            this.btneliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btneliminar.UseVisualStyleBackColor = false;
-            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
-            // 
-            // btneditar
-            // 
-            this.btneditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btneditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.btneditar.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btneditar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btneditar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.btneditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.btneditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btneditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btneditar.ForeColor = System.Drawing.Color.Yellow;
-            this.btneditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btneditar.Location = new System.Drawing.Point(382, 559);
-            this.btneditar.Name = "btneditar";
-            this.btneditar.Size = new System.Drawing.Size(100, 30);
-            this.btneditar.TabIndex = 21;
-            this.btneditar.Text = "Editar";
-            this.btneditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btneditar.UseVisualStyleBackColor = false;
-            this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnNuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.btnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.ForeColor = System.Drawing.Color.Yellow;
-            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(170, 559);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(100, 30);
-            this.btnNuevo.TabIndex = 20;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNuevo.UseVisualStyleBackColor = false;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // dgwProveedor
             // 
@@ -423,14 +491,17 @@
             this.dgwProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgwProveedor.ColumnHeadersHeight = 30;
             this.dgwProveedor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Cod_Proveedor,
-            this.RazSocial_Proveedor,
-            this.Ruc_Proveedor,
-            this.Direccion_proveedor,
-            this.Telefono_Proveedor,
-            this.Celular_Proveedor,
-            this.Correo_Proveedor,
-            this.Imagen});
+            this.Nombre_Cliente,
+            this.Sexo_Cliente,
+            this.Direccion_Cliente,
+            this.FechaNac_Cliente,
+            this.Telefono_Cliente,
+            this.Celular_Cliente,
+            this.Nombre_TipDoc,
+            this.NumeroDoc_Cliente,
+            this.Correo_Cliente,
+            this.FechCreacion_Cliente,
+            this.Foto});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(61)))), ((int)(((byte)(69)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -441,7 +512,7 @@
             this.dgwProveedor.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgwProveedor.EnableHeadersVisualStyles = false;
             this.dgwProveedor.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dgwProveedor.Location = new System.Drawing.Point(17, 367);
+            this.dgwProveedor.Location = new System.Drawing.Point(18, 414);
             this.dgwProveedor.Name = "dgwProveedor";
             this.dgwProveedor.ReadOnly = true;
             this.dgwProveedor.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -457,79 +528,11 @@
             this.dgwProveedor.TabIndex = 3;
             this.dgwProveedor.SelectionChanged += new System.EventHandler(this.dgwProveedor_SelectionChanged);
             // 
-            // Cod_Proveedor
-            // 
-            this.Cod_Proveedor.DataPropertyName = "Cod_Proveedor";
-            this.Cod_Proveedor.HeaderText = "Cod_Proveedor";
-            this.Cod_Proveedor.MinimumWidth = 20;
-            this.Cod_Proveedor.Name = "Cod_Proveedor";
-            this.Cod_Proveedor.ReadOnly = true;
-            this.Cod_Proveedor.Width = 160;
-            // 
-            // RazSocial_Proveedor
-            // 
-            this.RazSocial_Proveedor.DataPropertyName = "RazSocial_Proveedor";
-            this.RazSocial_Proveedor.HeaderText = "Proveedor";
-            this.RazSocial_Proveedor.Name = "RazSocial_Proveedor";
-            this.RazSocial_Proveedor.ReadOnly = true;
-            this.RazSocial_Proveedor.Width = 219;
-            // 
-            // Ruc_Proveedor
-            // 
-            this.Ruc_Proveedor.DataPropertyName = "Ruc_Proveedor";
-            this.Ruc_Proveedor.HeaderText = "Ruc";
-            this.Ruc_Proveedor.MinimumWidth = 20;
-            this.Ruc_Proveedor.Name = "Ruc_Proveedor";
-            this.Ruc_Proveedor.ReadOnly = true;
-            this.Ruc_Proveedor.Width = 148;
-            // 
-            // Direccion_proveedor
-            // 
-            this.Direccion_proveedor.DataPropertyName = "Direccion_proveedor";
-            this.Direccion_proveedor.HeaderText = "Direccion";
-            this.Direccion_proveedor.Name = "Direccion_proveedor";
-            this.Direccion_proveedor.ReadOnly = true;
-            this.Direccion_proveedor.Visible = false;
-            this.Direccion_proveedor.Width = 105;
-            // 
-            // Telefono_Proveedor
-            // 
-            this.Telefono_Proveedor.DataPropertyName = "Telefono_Proveedor";
-            this.Telefono_Proveedor.HeaderText = "Telefono";
-            this.Telefono_Proveedor.MinimumWidth = 10;
-            this.Telefono_Proveedor.Name = "Telefono_Proveedor";
-            this.Telefono_Proveedor.ReadOnly = true;
-            // 
-            // Celular_Proveedor
-            // 
-            this.Celular_Proveedor.DataPropertyName = "Celular_Proveedor";
-            this.Celular_Proveedor.HeaderText = "Celular";
-            this.Celular_Proveedor.MinimumWidth = 8;
-            this.Celular_Proveedor.Name = "Celular_Proveedor";
-            this.Celular_Proveedor.ReadOnly = true;
-            this.Celular_Proveedor.Visible = false;
-            // 
-            // Correo_Proveedor
-            // 
-            this.Correo_Proveedor.DataPropertyName = "Correo_Proveedor";
-            this.Correo_Proveedor.HeaderText = "Correo";
-            this.Correo_Proveedor.Name = "Correo_Proveedor";
-            this.Correo_Proveedor.ReadOnly = true;
-            this.Correo_Proveedor.Width = 109;
-            // 
-            // Imagen
-            // 
-            this.Imagen.DataPropertyName = "Imagen";
-            this.Imagen.HeaderText = "Imagen";
-            this.Imagen.Name = "Imagen";
-            this.Imagen.ReadOnly = true;
-            this.Imagen.Visible = false;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(21, 204);
+            this.label5.Location = new System.Drawing.Point(21, 317);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 18);
             this.label5.TabIndex = 13;
@@ -537,70 +540,81 @@
             // 
             // txtdireccion
             // 
-            this.txtdireccion.Location = new System.Drawing.Point(158, 175);
+            this.txtdireccion.Location = new System.Drawing.Point(158, 313);
             this.txtdireccion.Multiline = true;
             this.txtdireccion.Name = "txtdireccion";
             this.txtdireccion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtdireccion.Size = new System.Drawing.Size(388, 63);
+            this.txtdireccion.Size = new System.Drawing.Size(283, 48);
             this.txtdireccion.TabIndex = 12;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(21, 109);
+            this.label4.Location = new System.Drawing.Point(21, 150);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 18);
+            this.label4.Size = new System.Drawing.Size(53, 18);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Razon Social";
+            this.label4.Text = "Cliente";
             // 
-            // txtRazSocial_Proveedor
+            // txtcliente
             // 
-            this.txtRazSocial_Proveedor.BackColor = System.Drawing.Color.White;
-            this.txtRazSocial_Proveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRazSocial_Proveedor.Location = new System.Drawing.Point(158, 104);
-            this.txtRazSocial_Proveedor.Name = "txtRazSocial_Proveedor";
-            this.txtRazSocial_Proveedor.Size = new System.Drawing.Size(292, 24);
-            this.txtRazSocial_Proveedor.TabIndex = 10;
-            this.txtRazSocial_Proveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombrecategoria_KeyPress);
+            this.txtcliente.BackColor = System.Drawing.Color.White;
+            this.txtcliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcliente.Location = new System.Drawing.Point(158, 145);
+            this.txtcliente.Name = "txtcliente";
+            this.txtcliente.Size = new System.Drawing.Size(283, 24);
+            this.txtcliente.TabIndex = 10;
+            this.txtcliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombrecategoria_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(19, 74);
+            this.label3.Location = new System.Drawing.Point(155, 83);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 18);
+            this.label3.Size = new System.Drawing.Size(106, 18);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Codigo Proveedor";
+            this.label3.Text = "Nº Documento";
             // 
-            // txtCod_Proveedor
+            // txtnumerodoc
             // 
-            this.txtCod_Proveedor.BackColor = System.Drawing.Color.White;
-            this.txtCod_Proveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCod_Proveedor.Location = new System.Drawing.Point(158, 68);
-            this.txtCod_Proveedor.Name = "txtCod_Proveedor";
-            this.txtCod_Proveedor.Size = new System.Drawing.Size(115, 24);
-            this.txtCod_Proveedor.TabIndex = 8;
+            this.txtnumerodoc.BackColor = System.Drawing.Color.White;
+            this.txtnumerodoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnumerodoc.Location = new System.Drawing.Point(267, 80);
+            this.txtnumerodoc.Name = "txtnumerodoc";
+            this.txtnumerodoc.Size = new System.Drawing.Size(174, 24);
+            this.txtnumerodoc.TabIndex = 8;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(21, 40);
+            this.label2.Location = new System.Drawing.Point(21, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(19, 18);
             this.label2.TabIndex = 7;
             this.label2.Text = "Id";
             // 
-            // txtId_Proveedor
+            // txtId_Cliente
             // 
-            this.txtId_Proveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtId_Proveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId_Proveedor.Location = new System.Drawing.Point(158, 34);
-            this.txtId_Proveedor.Name = "txtId_Proveedor";
-            this.txtId_Proveedor.Size = new System.Drawing.Size(75, 24);
-            this.txtId_Proveedor.TabIndex = 6;
+            this.txtId_Cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtId_Cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId_Cliente.Location = new System.Drawing.Point(64, 80);
+            this.txtId_Cliente.Name = "txtId_Cliente";
+            this.txtId_Cliente.Size = new System.Drawing.Size(75, 24);
+            this.txtId_Cliente.TabIndex = 6;
+            // 
+            // Estado
+            // 
+            this.Estado.AutoSize = true;
+            this.Estado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Estado.ForeColor = System.Drawing.Color.Lime;
+            this.Estado.Location = new System.Drawing.Point(587, 62);
+            this.Estado.Name = "Estado";
+            this.Estado.Size = new System.Drawing.Size(21, 20);
+            this.Estado.TabIndex = 224;
+            this.Estado.Text = "...";
             // 
             // panel2
             // 
@@ -684,28 +698,154 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(262, 10);
+            this.label1.Location = new System.Drawing.Point(283, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(276, 20);
+            this.label1.Size = new System.Drawing.Size(214, 20);
             this.label1.TabIndex = 8;
-            this.label1.Text = "CATALOGO DE PROVEEDORES";
+            this.label1.Text = "CATALOGO DE CLIENTE";
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // Frm_Proveedor
+            // cmbtipodoc
+            // 
+            this.cmbtipodoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbtipodoc.FormattingEnabled = true;
+            this.cmbtipodoc.Location = new System.Drawing.Point(158, 113);
+            this.cmbtipodoc.Name = "cmbtipodoc";
+            this.cmbtipodoc.Size = new System.Drawing.Size(283, 26);
+            this.cmbtipodoc.TabIndex = 226;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(20, 121);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(119, 18);
+            this.label12.TabIndex = 227;
+            this.label12.Text = "Tipo Documento";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(21, 181);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(128, 18);
+            this.label13.TabIndex = 229;
+            this.label13.Text = "Fecha Nacimiento";
+            // 
+            // dtpfechaN
+            // 
+            this.dtpfechaN.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpfechaN.Location = new System.Drawing.Point(158, 175);
+            this.dtpfechaN.Name = "dtpfechaN";
+            this.dtpfechaN.Size = new System.Drawing.Size(114, 24);
+            this.dtpfechaN.TabIndex = 228;
+            // 
+            // Nombre_Cliente
+            // 
+            this.Nombre_Cliente.DataPropertyName = "Nombre_Cliente";
+            this.Nombre_Cliente.HeaderText = "Cliente";
+            this.Nombre_Cliente.MinimumWidth = 20;
+            this.Nombre_Cliente.Name = "Nombre_Cliente";
+            this.Nombre_Cliente.ReadOnly = true;
+            this.Nombre_Cliente.Width = 160;
+            // 
+            // Sexo_Cliente
+            // 
+            this.Sexo_Cliente.DataPropertyName = "Sexo_Cliente";
+            this.Sexo_Cliente.HeaderText = "Sexo";
+            this.Sexo_Cliente.Name = "Sexo_Cliente";
+            this.Sexo_Cliente.ReadOnly = true;
+            this.Sexo_Cliente.Visible = false;
+            // 
+            // Direccion_Cliente
+            // 
+            this.Direccion_Cliente.DataPropertyName = "Direccion_Cliente";
+            this.Direccion_Cliente.HeaderText = "Direccion";
+            this.Direccion_Cliente.Name = "Direccion_Cliente";
+            this.Direccion_Cliente.ReadOnly = true;
+            this.Direccion_Cliente.Visible = false;
+            // 
+            // FechaNac_Cliente
+            // 
+            this.FechaNac_Cliente.DataPropertyName = "FechaNac_Cliente";
+            this.FechaNac_Cliente.HeaderText = "FechaNac";
+            this.FechaNac_Cliente.Name = "FechaNac_Cliente";
+            this.FechaNac_Cliente.ReadOnly = true;
+            this.FechaNac_Cliente.Visible = false;
+            // 
+            // Telefono_Cliente
+            // 
+            this.Telefono_Cliente.DataPropertyName = "Telefono_Cliente";
+            this.Telefono_Cliente.HeaderText = "Telefono";
+            this.Telefono_Cliente.Name = "Telefono_Cliente";
+            this.Telefono_Cliente.ReadOnly = true;
+            this.Telefono_Cliente.Visible = false;
+            // 
+            // Celular_Cliente
+            // 
+            this.Celular_Cliente.DataPropertyName = "Celular_Cliente";
+            this.Celular_Cliente.HeaderText = "Celular";
+            this.Celular_Cliente.Name = "Celular_Cliente";
+            this.Celular_Cliente.ReadOnly = true;
+            this.Celular_Cliente.Visible = false;
+            // 
+            // Nombre_TipDoc
+            // 
+            this.Nombre_TipDoc.DataPropertyName = "Nombre_TipDoc";
+            this.Nombre_TipDoc.HeaderText = "TipoDoc";
+            this.Nombre_TipDoc.Name = "Nombre_TipDoc";
+            this.Nombre_TipDoc.ReadOnly = true;
+            // 
+            // NumeroDoc_Cliente
+            // 
+            this.NumeroDoc_Cliente.DataPropertyName = "NumeroDoc_Cliente";
+            this.NumeroDoc_Cliente.HeaderText = " NºDoc";
+            this.NumeroDoc_Cliente.Name = "NumeroDoc_Cliente";
+            this.NumeroDoc_Cliente.ReadOnly = true;
+            this.NumeroDoc_Cliente.Width = 219;
+            // 
+            // Correo_Cliente
+            // 
+            this.Correo_Cliente.DataPropertyName = "Correo_Cliente";
+            this.Correo_Cliente.HeaderText = "Correo";
+            this.Correo_Cliente.MinimumWidth = 20;
+            this.Correo_Cliente.Name = "Correo_Cliente";
+            this.Correo_Cliente.ReadOnly = true;
+            this.Correo_Cliente.Width = 148;
+            // 
+            // FechCreacion_Cliente
+            // 
+            this.FechCreacion_Cliente.DataPropertyName = "FechCreacion_Cliente";
+            this.FechCreacion_Cliente.HeaderText = "Fecha";
+            this.FechCreacion_Cliente.MinimumWidth = 10;
+            this.FechCreacion_Cliente.Name = "FechCreacion_Cliente";
+            this.FechCreacion_Cliente.ReadOnly = true;
+            // 
+            // Foto
+            // 
+            this.Foto.DataPropertyName = "Foto";
+            this.Foto.HeaderText = "Foto";
+            this.Foto.Name = "Foto";
+            this.Foto.ReadOnly = true;
+            this.Foto.Visible = false;
+            // 
+            // Frm_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(832, 670);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Frm_Proveedor";
+            this.Name = "Frm_Cliente";
             this.Opacity = 0.96D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Frm_Proveedor";
-            this.Load += new System.EventHandler(this.Frm_Proveedor_Load);
+            this.Text = "Frm_Cliente";
+            this.Load += new System.EventHandler(this.Frm_Cliente_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -726,19 +866,15 @@
         private System.Windows.Forms.Button btnLogo;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtRazSocial_Proveedor;
+        private System.Windows.Forms.TextBox txtcliente;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCod_Proveedor;
+        private System.Windows.Forms.TextBox txtnumerodoc;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtId_Proveedor;
+        private System.Windows.Forms.TextBox txtId_Cliente;
         private System.Windows.Forms.DataGridView dgwProveedor;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtdireccion;
-        private System.Windows.Forms.Button btneliminar;
-        private System.Windows.Forms.Button btneditar;
-        private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.Button btnCerrar;
@@ -749,21 +885,38 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnnormal;
-        private System.Windows.Forms.TextBox txtruc;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txttelefono;
         private System.Windows.Forms.TextBox txtcelular;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtcorreo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cod_Proveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RazSocial_Proveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ruc_Proveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion_proveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono_Proveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Celular_Proveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Correo_Proveedor;
-        private System.Windows.Forms.DataGridViewImageColumn Imagen;
-        private System.Windows.Forms.Button btnguardado;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.RadioButton rbFemenino;
+        private System.Windows.Forms.RadioButton rbMasculino;
+        private System.Windows.Forms.Button Guardar;
+        private System.Windows.Forms.Button Nuevo;
+        private System.Windows.Forms.Button bteditar;
+        private System.Windows.Forms.Button Eliminar;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dtpfecha;
+        private System.Windows.Forms.ComboBox cbxDispositivo;
+        private System.Windows.Forms.Label Estado;
+        private System.Windows.Forms.Button btnWebcam;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cmbtipodoc;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DateTimePicker dtpfechaN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sexo_Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion_Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaNac_Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono_Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Celular_Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_TipDoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroDoc_Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Correo_Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechCreacion_Cliente;
+        private System.Windows.Forms.DataGridViewImageColumn Foto;
     }
 }

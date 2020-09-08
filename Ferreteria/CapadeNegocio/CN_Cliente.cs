@@ -28,9 +28,11 @@ namespace CapadeNegocio
             tabla = objetoCD.ListaDeCliente (filtro);
             return tabla;
         }
-        public void Insertarcliente(string Id_TipDoc, string NumeroDoc_Cliente, string Nombre_Cliente, byte Estado_Cliente, string FechaNac_Cliente, string Sexo_Cliente, string Telefono_Cliente, string Celular_Cliente, string Correo_Cliente, string Direccion_Cliente, string FechCreacion_Cliente, byte[] Foto)
+      
+
+        public void Insertarcliente(int Id_TipDoc, string NumeroDoc_Cliente, string Nombre_Cliente, string FechaNac_Cliente, string Sexo_Cliente, string Telefono_Cliente, string Celular_Cliente, string Correo_Cliente, string Direccion_Cliente, byte Estado_Cliente, string FechCreacion_Cliente, byte[] Foto)
         {
-            objetoCD.InsertarCliente (Id_TipDoc, NumeroDoc_Cliente, Nombre_Cliente, Estado_Cliente, FechaNac_Cliente, Sexo_Cliente, Telefono_Cliente, Celular_Cliente, Correo_Cliente, Direccion_Cliente, FechCreacion_Cliente, Foto);
+            objetoCD.InsertarCliente(Id_TipDoc, NumeroDoc_Cliente, Nombre_Cliente, FechaNac_Cliente, Sexo_Cliente, Telefono_Cliente, Celular_Cliente, Correo_Cliente, Direccion_Cliente, Estado_Cliente, FechCreacion_Cliente, Foto);
         }
         public void Editarcliente(int Id_Cliente, string Id_TipDoc, string NumeroDoc_Cliente, string Nombre_Cliente, byte Estado_Cliente, string FechaNac_Cliente, string Sexo_Cliente, string Telefono_Cliente, string Celular_Cliente, string Correo_Cliente, string Direccion_Cliente, string FechCreacion_Cliente, byte[] Foto)
         {

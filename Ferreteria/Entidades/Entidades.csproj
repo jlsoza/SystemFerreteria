@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9F7D5FB7-AC77-4AC0-9F31-C382DA5577FD}</ProjectGuid>
+    <ProjectGuid>{8533D77F-6507-4633-8B5F-BFE5EBB8528A}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>CapadeNegocio</RootNamespace>
-    <AssemblyName>CapadeNegocio</AssemblyName>
+    <RootNamespace>Entidades</RootNamespace>
+    <AssemblyName>Entidades</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -42,28 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CNCategorias.cs" />
-    <Compile Include="CNProducto.cs" />
-    <Compile Include="CNProveedor.cs" />
-    <Compile Include="CN_Cliente.cs" />
-    <Compile Include="CN_Moneda.cs" />
-    <Compile Include="CN_Sucursal.cs" />
-    <Compile Include="CN_TipoDoc.cs" />
-    <Compile Include="CN_TipoMovimiento.cs" />
-    <Compile Include="CN_TipoPago.cs" />
-    <Compile Include="CN_UnidadM.cs" />
+    <Compile Include="E_Categoria.cs" />
+    <Compile Include="E_Producto.cs" />
+    <Compile Include="E_Proveedor.cs" />
+    <Compile Include="E_TipoDoc.cs" />
+    <Compile Include="E_UnidadMedida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
-      <Project>{2812e7cc-8dfb-4f85-b75f-151ff1ee5153}</Project>
-      <Name>CapaDatos</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Entidades\Entidades.csproj">
-      <Project>{8533d77f-6507-4633-8b5f-bfe5ebb8528a}</Project>
-      <Name>Entidades</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

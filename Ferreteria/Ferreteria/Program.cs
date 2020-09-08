@@ -16,7 +16,7 @@ namespace Ferreteria
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_Proveedor());
+            Application.Run(new Frm_Cliente());
         }
     }
 }

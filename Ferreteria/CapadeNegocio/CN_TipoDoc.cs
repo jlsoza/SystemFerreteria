@@ -6,11 +6,30 @@ using System.Threading.Tasks;
 using CapaDatos;
 using System.Data;
 using System.Data.SqlClient;
+using Entidades;
 
 namespace CapadeNegocio
 {
     public class CN_TipoDoc
     {
+        private static readonly CN_TipoDoc _intancia = new CN_TipoDoc();
+        public static CN_TipoDoc Instancia
+        {
+            get { return CN_TipoDoc._intancia; }
+        }
+
+        public List<E_TipoDoc> ListaTipoDoc()
+        {
+            try
+            {
+                return CD_TipoDocumento.Instancia.ListarTipoDoc();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
 
         private CD_TipoDocumento objetoCD = new CD_TipoDocumento();
         /// <summary>

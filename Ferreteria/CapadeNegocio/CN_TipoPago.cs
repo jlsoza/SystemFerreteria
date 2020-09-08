@@ -16,6 +16,10 @@ namespace CapadeNegocio
         /// //
         /// </summary>
         /// <returns></returns>
+        /// 
+
+
+
         public DataTable MostrarTipoPago()
         {
             DataTable tabla = new DataTable();

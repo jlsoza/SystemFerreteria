@@ -6,16 +6,28 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace CapaDatos
 {
     public class CD_Categorias
     {
+        public int Id_Cat { get; set; }
+        public String Codigo_Cat { get; set; }
+        public String Nombre_Cat { get; set; }
+        public String Descripcion_Cat { get; set; }
+        public String Fecha { get; set; }
+        public int Estado_Categoria { get; set; }
+
         private ConexionBD conexion = new ConexionBD();
 
         SqlDataReader leer;
         DataTable tabla = new DataTable();
+            
         SqlCommand comando = new SqlCommand();
+
+        
+
 
         public DataTable MostrarCategoria()
         {
