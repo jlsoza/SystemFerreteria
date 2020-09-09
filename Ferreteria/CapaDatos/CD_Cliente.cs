@@ -65,7 +65,7 @@ namespace CapaDatos
             comando.Parameters.Clear();
         }
 
-        public void EditarCliente(int Id_Cliente, string Id_TipDoc, string NumeroDoc_Cliente, string Nombre_Cliente, byte Estado_Cliente, string FechaNac_Cliente, string Sexo_Cliente, string Telefono_Cliente, string Celular_Cliente, string Correo_Cliente, string Direccion_Cliente, string FechCreacion_Cliente, byte[] Foto)
+        public void EditarCliente(int Id_Cliente, int Id_TipDoc, string NumeroDoc_Cliente, string Nombre_Cliente, byte Estado_Cliente, string FechaNac_Cliente, string Sexo_Cliente, string Telefono_Cliente, string Celular_Cliente, string Correo_Cliente, string Direccion_Cliente, string FechCreacion_Cliente, byte[] Foto)
         {
             //PROCEDIMIENTO
             comando.Connection = conexion.AbrirConexion();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,8 +23,10 @@ namespace Ferreteria
         private bool Editar = false;
         public Frm_Cliente()
         {
-            
+           
             InitializeComponent();
+           
+
             if (Estado.Text == "...")
             {
                 pxImagen.Image = Properties.Resources.ImgDefecto;
@@ -92,6 +95,7 @@ namespace Ferreteria
      
         private void MostrarClientes()
         {
+          
             CN_Cliente objeto = new CN_Cliente();
             string filtro;
             filtro = txtFiltro.Text.Replace("'", "");
@@ -106,11 +110,7 @@ namespace Ferreteria
             this.Close();
         }
 
-        private void btnbuscar_Click_1(object sender, EventArgs e)
-        {
-            MostrarClientes();
-        }
-
+      
         private void txtFiltro_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
@@ -175,6 +175,10 @@ namespace Ferreteria
 
         private void Frm_Cliente_Load(object sender, EventArgs e)
         {
+
+
+           /// this.leer_datos("Select *  from Tbl_Cliente")
+          
             pxImagen.Image = Ferreteria.Properties.Resources.ImgDefecto;
             dgwProveedor.AutoGenerateColumns = false;
             MostrarClientes();
@@ -318,6 +322,17 @@ namespace Ferreteria
                 }
             }
         }
+        public void leer_datos(string query, ref DataSet dstprincipal, string tabla)
+        {
+            SqlConnection cn = ConexionBD.Instancia.Conectar();
+            SqlCommand CMD = new SqlCommand(query, cn);
+            cn.Open();
+            SqlDataAdapter da = new SqlDataAdapter(CMD);
+            da.Fill(dstprincipal, tabla);
+            da.Dispose();
+            cn.Close();
+
+        }
 
         private void Guardar_Click(object sender, EventArgs e)
         {
@@ -326,11 +341,13 @@ namespace Ferreteria
 
                 //INSERTAR
                 if (Editar == false)
-                {
+                                        
+                  {
                     try
 
 
                     {
+
 
                         int TipoDoc;
                         TipoDoc = Convert.ToInt32(cmbtipodoc.SelectedValue);
@@ -340,15 +357,22 @@ namespace Ferreteria
                         System.IO.MemoryStream ms = new System.IO.MemoryStream();
                         pxImagen.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
                         byte[] imagen = ms.GetBuffer();
+                       
+                            
+                           
+                            objetoCN.Insertarcliente(TipoDoc, txtnumerodoc.Text, txtcliente.Text, dtpfechaN.Text, Sexo_Cliente,
+                        txttelefono.Text, txtcelular.Text, txtcorreo.Text, txtdireccion.Text, 1, dtpfecha.Text, imagen);
+                        
 
-                        objetoCN.Insertarcliente(TipoDoc, txtnumerodoc.Text, txtcliente.Text, dtpfechaN.Text, Sexo_Cliente,
-                        txttelefono.Text, txtcelular.Text, txtcorreo.Text,txtdireccion.Text,1,dtpfecha.Text, imagen);
+                        //    objetoCN.Insertarcliente(TipoDoc, txtnumerodoc.Text, txtcliente.Text, dtpfechaN.Text, Sexo_Cliente,
+                        //txttelefono.Text, txtcelular.Text, txtcorreo.Text,txtdireccion.Text,1,dtpfecha.Text, imagen);
+                        timer1.Stop();
                         MessageBox.Show("Se inserto correctamente", "Proceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MostrarClientes();
                         limpiarForm();
 
                         Eliminar.Enabled = true;
-                        btnbuscar.Enabled = true;
+                       
                     }
                     catch (Exception ex)
                     {
@@ -361,11 +385,18 @@ namespace Ferreteria
                 {
                     try
                     {
+
+                        int TipoDoc;
+                        TipoDoc = Convert.ToInt32(cmbtipodoc.SelectedValue);
+                        string Sexo_Cliente;
+                        if (rbMasculino.Checked == true) Sexo_Cliente = "M"; else Sexo_Cliente = "F";
+
                         System.IO.MemoryStream ms = new System.IO.MemoryStream();
                         pxImagen.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
                         byte[] imagen = ms.GetBuffer();
 
-                        // objetoCN.EditarProveedor(Id_Proveedor, txtnumerodoc.Text, txtcliente.Text, txtruc.Text, txtdireccion.Text, txttelefono.Text, txtcelular.Text, txtcorreo.Text, 1, imagen);
+                         objetoCN.Editarcliente (Id_Cliente , TipoDoc, txtnumerodoc.Text, txtcliente.Text, dtpfechaN.Text, Sexo_Cliente,
+                        txttelefono.Text, txtcelular.Text, txtcorreo.Text, txtdireccion.Text, 1, dtpfecha.Text, imagen);
                         MessageBox.Show("Se edito correctamente", "Proceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MostrarClientes();
                         Editar = false;
@@ -411,9 +442,16 @@ namespace Ferreteria
             habilitarCampos(true);
 
             Eliminar.Enabled = false;
-            btnbuscar.Enabled = false;
+          
             Guardar.Enabled = true;
             bteditar.Enabled = false;
+        }
+
+       
+
+        private void txtFiltro_KeyDown(object sender, KeyEventArgs e)
+        {
+            MostrarClientes();
         }
 
         private void btnguardar_DragDrop(object sender, DragEventArgs e)

@@ -76,6 +76,12 @@
     <Compile Include="Catalogos\Frm_IndicadorP.Designer.cs">
       <DependentUpon>Frm_IndicadorP.cs</DependentUpon>
     </Compile>
+    <Compile Include="Catalogos\Frm_IngresoAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Frm_IngresoAlmacen.Designer.cs">
+      <DependentUpon>Frm_IngresoAlmacen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Catalogos\Frm_Producto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,12 +93,6 @@
     </Compile>
     <Compile Include="Catalogos\Frm_Proveedor.Designer.cs">
       <DependentUpon>Frm_Proveedor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Catalogos\Frm_Categoria.cs">
       <SubType>Form</SubType>
@@ -110,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\Frm_IndicadorP.resx">
       <DependentUpon>Frm_IndicadorP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Frm_IngresoAlmacen.resx">
+      <DependentUpon>Frm_IngresoAlmacen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\Frm_Producto.resx">
       <DependentUpon>Frm_Producto.cs</DependentUpon>
@@ -171,6 +174,9 @@
     <PackageReference Include="BarcodeLib">
       <Version>1.0.0.23</Version>
     </PackageReference>
+    <PackageReference Include="CircularProgressBar">
+      <Version>2.8.0.16</Version>
+    </PackageReference>
     <PackageReference Include="iTextSharp">
       <Version>5.5.13.1</Version>
     </PackageReference>
@@ -181,6 +187,9 @@
     <Content Include="Resources\circulorojo_24x24.png" />
     <None Include="Resources\circulo_verde24x24.png" />
     <Content Include="Resources\Default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MenuPrincipal\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -29,12 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Cliente));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.dtpfechaN = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cmbtipodoc = new System.Windows.Forms.ComboBox();
             this.btnWebcam = new System.Windows.Forms.Button();
             this.cbxDispositivo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -57,9 +62,19 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pxImagen = new System.Windows.Forms.PictureBox();
-            this.btnbuscar = new System.Windows.Forms.Button();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.dgwProveedor = new System.Windows.Forms.DataGridView();
+            this.Nombre_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sexo_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaNac_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Celular_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre_TipDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumeroDoc_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechCreacion_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Foto = new System.Windows.Forms.DataGridViewImageColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.txtdireccion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -76,21 +91,7 @@
             this.btnLogo = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cmbtipodoc = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.dtpfechaN = new System.Windows.Forms.DateTimePicker();
-            this.Nombre_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sexo_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direccion_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaNac_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Celular_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre_TipDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumeroDoc_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechCreacion_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Foto = new System.Windows.Forms.DataGridViewImageColumn();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pxImagen)).BeginInit();
@@ -112,6 +113,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.dtpfechaN);
             this.groupBox1.Controls.Add(this.label12);
@@ -138,7 +140,6 @@
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.pxImagen);
-            this.groupBox1.Controls.Add(this.btnbuscar);
             this.groupBox1.Controls.Add(this.txtFiltro);
             this.groupBox1.Controls.Add(this.dgwProveedor);
             this.groupBox1.Controls.Add(this.label5);
@@ -158,6 +159,53 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registro";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.Yellow;
+            this.label14.Location = new System.Drawing.Point(32, 380);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(55, 18);
+            this.label14.TabIndex = 232;
+            this.label14.Text = "Buscar";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(21, 181);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(128, 18);
+            this.label13.TabIndex = 229;
+            this.label13.Text = "Fecha Nacimiento";
+            // 
+            // dtpfechaN
+            // 
+            this.dtpfechaN.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpfechaN.Location = new System.Drawing.Point(158, 175);
+            this.dtpfechaN.Name = "dtpfechaN";
+            this.dtpfechaN.Size = new System.Drawing.Size(114, 24);
+            this.dtpfechaN.TabIndex = 228;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(20, 121);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(119, 18);
+            this.label12.TabIndex = 227;
+            this.label12.Text = "Tipo Documento";
+            // 
+            // cmbtipodoc
+            // 
+            this.cmbtipodoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbtipodoc.FormattingEnabled = true;
+            this.cmbtipodoc.Location = new System.Drawing.Point(158, 113);
+            this.cmbtipodoc.Name = "cmbtipodoc";
+            this.cmbtipodoc.Size = new System.Drawing.Size(283, 26);
+            this.cmbtipodoc.TabIndex = 226;
             // 
             // btnWebcam
             // 
@@ -442,23 +490,6 @@
             this.pxImagen.TabIndex = 172;
             this.pxImagen.TabStop = false;
             // 
-            // btnbuscar
-            // 
-            this.btnbuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnbuscar.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnbuscar.FlatAppearance.BorderSize = 0;
-            this.btnbuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnbuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnbuscar.ForeColor = System.Drawing.Color.White;
-            this.btnbuscar.Location = new System.Drawing.Point(25, 373);
-            this.btnbuscar.Name = "btnbuscar";
-            this.btnbuscar.Size = new System.Drawing.Size(86, 27);
-            this.btnbuscar.TabIndex = 171;
-            this.btnbuscar.Text = "Buscar";
-            this.btnbuscar.UseVisualStyleBackColor = false;
-            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click_1);
-            // 
             // txtFiltro
             // 
             this.txtFiltro.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -467,6 +498,7 @@
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(228, 24);
             this.txtFiltro.TabIndex = 170;
+            this.txtFiltro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFiltro_KeyDown);
             this.txtFiltro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFiltro_KeyPress);
             // 
             // dgwProveedor
@@ -481,14 +513,14 @@
             this.dgwProveedor.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dgwProveedor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgwProveedor.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgwProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgwProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgwProveedor.ColumnHeadersHeight = 30;
             this.dgwProveedor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre_Cliente,
@@ -502,31 +534,120 @@
             this.Correo_Cliente,
             this.FechCreacion_Cliente,
             this.Foto});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(61)))), ((int)(((byte)(69)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgwProveedor.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(61)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgwProveedor.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgwProveedor.EnableHeadersVisualStyles = false;
             this.dgwProveedor.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dgwProveedor.Location = new System.Drawing.Point(18, 414);
             this.dgwProveedor.Name = "dgwProveedor";
             this.dgwProveedor.ReadOnly = true;
             this.dgwProveedor.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.PaleVioletRed;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgwProveedor.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.PaleVioletRed;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgwProveedor.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgwProveedor.Size = new System.Drawing.Size(773, 181);
             this.dgwProveedor.TabIndex = 3;
             this.dgwProveedor.SelectionChanged += new System.EventHandler(this.dgwProveedor_SelectionChanged);
+            // 
+            // Nombre_Cliente
+            // 
+            this.Nombre_Cliente.DataPropertyName = "Nombre_Cliente";
+            this.Nombre_Cliente.HeaderText = "Cliente";
+            this.Nombre_Cliente.MinimumWidth = 20;
+            this.Nombre_Cliente.Name = "Nombre_Cliente";
+            this.Nombre_Cliente.ReadOnly = true;
+            this.Nombre_Cliente.Width = 165;
+            // 
+            // Sexo_Cliente
+            // 
+            this.Sexo_Cliente.DataPropertyName = "Sexo_Cliente";
+            this.Sexo_Cliente.HeaderText = "Sexo";
+            this.Sexo_Cliente.Name = "Sexo_Cliente";
+            this.Sexo_Cliente.ReadOnly = true;
+            this.Sexo_Cliente.Visible = false;
+            // 
+            // Direccion_Cliente
+            // 
+            this.Direccion_Cliente.DataPropertyName = "Direccion_Cliente";
+            this.Direccion_Cliente.HeaderText = "Direccion";
+            this.Direccion_Cliente.Name = "Direccion_Cliente";
+            this.Direccion_Cliente.ReadOnly = true;
+            this.Direccion_Cliente.Visible = false;
+            // 
+            // FechaNac_Cliente
+            // 
+            this.FechaNac_Cliente.DataPropertyName = "FechaNac_Cliente";
+            this.FechaNac_Cliente.HeaderText = "FechaNac";
+            this.FechaNac_Cliente.Name = "FechaNac_Cliente";
+            this.FechaNac_Cliente.ReadOnly = true;
+            this.FechaNac_Cliente.Visible = false;
+            // 
+            // Telefono_Cliente
+            // 
+            this.Telefono_Cliente.DataPropertyName = "Telefono_Cliente";
+            this.Telefono_Cliente.HeaderText = "Telefono";
+            this.Telefono_Cliente.Name = "Telefono_Cliente";
+            this.Telefono_Cliente.ReadOnly = true;
+            this.Telefono_Cliente.Visible = false;
+            // 
+            // Celular_Cliente
+            // 
+            this.Celular_Cliente.DataPropertyName = "Celular_Cliente";
+            this.Celular_Cliente.HeaderText = "Celular";
+            this.Celular_Cliente.Name = "Celular_Cliente";
+            this.Celular_Cliente.ReadOnly = true;
+            this.Celular_Cliente.Visible = false;
+            // 
+            // Nombre_TipDoc
+            // 
+            this.Nombre_TipDoc.DataPropertyName = "Nombre_TipDoc";
+            this.Nombre_TipDoc.HeaderText = "TipoDoc";
+            this.Nombre_TipDoc.Name = "Nombre_TipDoc";
+            this.Nombre_TipDoc.ReadOnly = true;
+            // 
+            // NumeroDoc_Cliente
+            // 
+            this.NumeroDoc_Cliente.DataPropertyName = "NumeroDoc_Cliente";
+            this.NumeroDoc_Cliente.HeaderText = " NºDoc";
+            this.NumeroDoc_Cliente.Name = "NumeroDoc_Cliente";
+            this.NumeroDoc_Cliente.ReadOnly = true;
+            this.NumeroDoc_Cliente.Width = 219;
+            // 
+            // Correo_Cliente
+            // 
+            this.Correo_Cliente.DataPropertyName = "Correo_Cliente";
+            this.Correo_Cliente.HeaderText = "Correo";
+            this.Correo_Cliente.MinimumWidth = 20;
+            this.Correo_Cliente.Name = "Correo_Cliente";
+            this.Correo_Cliente.ReadOnly = true;
+            this.Correo_Cliente.Width = 148;
+            // 
+            // FechCreacion_Cliente
+            // 
+            this.FechCreacion_Cliente.DataPropertyName = "FechCreacion_Cliente";
+            this.FechCreacion_Cliente.HeaderText = "Fecha";
+            this.FechCreacion_Cliente.MinimumWidth = 10;
+            this.FechCreacion_Cliente.Name = "FechCreacion_Cliente";
+            this.FechCreacion_Cliente.ReadOnly = true;
+            // 
+            // Foto
+            // 
+            this.Foto.DataPropertyName = "Foto";
+            this.Foto.HeaderText = "Foto";
+            this.Foto.Name = "Foto";
+            this.Foto.ReadOnly = true;
+            this.Foto.Visible = false;
             // 
             // label5
             // 
@@ -571,7 +692,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(155, 83);
+            this.label3.Location = new System.Drawing.Point(21, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 18);
             this.label3.TabIndex = 9;
@@ -581,16 +702,16 @@
             // 
             this.txtnumerodoc.BackColor = System.Drawing.Color.White;
             this.txtnumerodoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnumerodoc.Location = new System.Drawing.Point(267, 80);
+            this.txtnumerodoc.Location = new System.Drawing.Point(158, 80);
             this.txtnumerodoc.Name = "txtnumerodoc";
-            this.txtnumerodoc.Size = new System.Drawing.Size(174, 24);
+            this.txtnumerodoc.Size = new System.Drawing.Size(177, 24);
             this.txtnumerodoc.TabIndex = 8;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(21, 83);
+            this.label2.Location = new System.Drawing.Point(638, 121);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(19, 18);
             this.label2.TabIndex = 7;
@@ -600,7 +721,7 @@
             // 
             this.txtId_Cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtId_Cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId_Cliente.Location = new System.Drawing.Point(64, 80);
+            this.txtId_Cliente.Location = new System.Drawing.Point(679, 150);
             this.txtId_Cliente.Name = "txtId_Cliente";
             this.txtId_Cliente.Size = new System.Drawing.Size(75, 24);
             this.txtId_Cliente.TabIndex = 6;
@@ -708,132 +829,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // cmbtipodoc
-            // 
-            this.cmbtipodoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbtipodoc.FormattingEnabled = true;
-            this.cmbtipodoc.Location = new System.Drawing.Point(158, 113);
-            this.cmbtipodoc.Name = "cmbtipodoc";
-            this.cmbtipodoc.Size = new System.Drawing.Size(283, 26);
-            this.cmbtipodoc.TabIndex = 226;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(20, 121);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(119, 18);
-            this.label12.TabIndex = 227;
-            this.label12.Text = "Tipo Documento";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(21, 181);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(128, 18);
-            this.label13.TabIndex = 229;
-            this.label13.Text = "Fecha Nacimiento";
-            // 
-            // dtpfechaN
-            // 
-            this.dtpfechaN.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpfechaN.Location = new System.Drawing.Point(158, 175);
-            this.dtpfechaN.Name = "dtpfechaN";
-            this.dtpfechaN.Size = new System.Drawing.Size(114, 24);
-            this.dtpfechaN.TabIndex = 228;
-            // 
-            // Nombre_Cliente
-            // 
-            this.Nombre_Cliente.DataPropertyName = "Nombre_Cliente";
-            this.Nombre_Cliente.HeaderText = "Cliente";
-            this.Nombre_Cliente.MinimumWidth = 20;
-            this.Nombre_Cliente.Name = "Nombre_Cliente";
-            this.Nombre_Cliente.ReadOnly = true;
-            this.Nombre_Cliente.Width = 160;
-            // 
-            // Sexo_Cliente
-            // 
-            this.Sexo_Cliente.DataPropertyName = "Sexo_Cliente";
-            this.Sexo_Cliente.HeaderText = "Sexo";
-            this.Sexo_Cliente.Name = "Sexo_Cliente";
-            this.Sexo_Cliente.ReadOnly = true;
-            this.Sexo_Cliente.Visible = false;
-            // 
-            // Direccion_Cliente
-            // 
-            this.Direccion_Cliente.DataPropertyName = "Direccion_Cliente";
-            this.Direccion_Cliente.HeaderText = "Direccion";
-            this.Direccion_Cliente.Name = "Direccion_Cliente";
-            this.Direccion_Cliente.ReadOnly = true;
-            this.Direccion_Cliente.Visible = false;
-            // 
-            // FechaNac_Cliente
-            // 
-            this.FechaNac_Cliente.DataPropertyName = "FechaNac_Cliente";
-            this.FechaNac_Cliente.HeaderText = "FechaNac";
-            this.FechaNac_Cliente.Name = "FechaNac_Cliente";
-            this.FechaNac_Cliente.ReadOnly = true;
-            this.FechaNac_Cliente.Visible = false;
-            // 
-            // Telefono_Cliente
-            // 
-            this.Telefono_Cliente.DataPropertyName = "Telefono_Cliente";
-            this.Telefono_Cliente.HeaderText = "Telefono";
-            this.Telefono_Cliente.Name = "Telefono_Cliente";
-            this.Telefono_Cliente.ReadOnly = true;
-            this.Telefono_Cliente.Visible = false;
-            // 
-            // Celular_Cliente
-            // 
-            this.Celular_Cliente.DataPropertyName = "Celular_Cliente";
-            this.Celular_Cliente.HeaderText = "Celular";
-            this.Celular_Cliente.Name = "Celular_Cliente";
-            this.Celular_Cliente.ReadOnly = true;
-            this.Celular_Cliente.Visible = false;
-            // 
-            // Nombre_TipDoc
-            // 
-            this.Nombre_TipDoc.DataPropertyName = "Nombre_TipDoc";
-            this.Nombre_TipDoc.HeaderText = "TipoDoc";
-            this.Nombre_TipDoc.Name = "Nombre_TipDoc";
-            this.Nombre_TipDoc.ReadOnly = true;
-            // 
-            // NumeroDoc_Cliente
-            // 
-            this.NumeroDoc_Cliente.DataPropertyName = "NumeroDoc_Cliente";
-            this.NumeroDoc_Cliente.HeaderText = " NºDoc";
-            this.NumeroDoc_Cliente.Name = "NumeroDoc_Cliente";
-            this.NumeroDoc_Cliente.ReadOnly = true;
-            this.NumeroDoc_Cliente.Width = 219;
-            // 
-            // Correo_Cliente
-            // 
-            this.Correo_Cliente.DataPropertyName = "Correo_Cliente";
-            this.Correo_Cliente.HeaderText = "Correo";
-            this.Correo_Cliente.MinimumWidth = 20;
-            this.Correo_Cliente.Name = "Correo_Cliente";
-            this.Correo_Cliente.ReadOnly = true;
-            this.Correo_Cliente.Width = 148;
-            // 
-            // FechCreacion_Cliente
-            // 
-            this.FechCreacion_Cliente.DataPropertyName = "FechCreacion_Cliente";
-            this.FechCreacion_Cliente.HeaderText = "Fecha";
-            this.FechCreacion_Cliente.MinimumWidth = 10;
-            this.FechCreacion_Cliente.Name = "FechCreacion_Cliente";
-            this.FechCreacion_Cliente.ReadOnly = true;
-            // 
-            // Foto
-            // 
-            this.Foto.DataPropertyName = "Foto";
-            this.Foto.HeaderText = "Foto";
-            this.Foto.Name = "Foto";
-            this.Foto.ReadOnly = true;
-            this.Foto.Visible = false;
-            // 
             // Frm_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -876,7 +871,6 @@
         private System.Windows.Forms.TextBox txtdireccion;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.TextBox txtFiltro;
-        private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.PictureBox pxImagen;
         private System.Windows.Forms.Button button2;
@@ -907,6 +901,7 @@
         private System.Windows.Forms.ComboBox cmbtipodoc;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DateTimePicker dtpfechaN;
+        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sexo_Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Direccion_Cliente;
@@ -918,5 +913,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Correo_Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechCreacion_Cliente;
         private System.Windows.Forms.DataGridViewImageColumn Foto;
+        private System.Windows.Forms.Label label14;
     }
 }

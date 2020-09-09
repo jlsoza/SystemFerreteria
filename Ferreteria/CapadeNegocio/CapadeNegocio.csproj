@@ -46,6 +46,8 @@
     <Compile Include="CNProducto.cs" />
     <Compile Include="CNProveedor.cs" />
     <Compile Include="CN_Cliente.cs" />
+    <Compile Include="CN_Compra.cs" />
+    <Compile Include="CN_Ingresos.cs" />
     <Compile Include="CN_Moneda.cs" />
     <Compile Include="CN_Sucursal.cs" />
     <Compile Include="CN_TipoDoc.cs" />
