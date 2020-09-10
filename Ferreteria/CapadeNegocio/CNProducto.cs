@@ -20,6 +20,10 @@ namespace CapadeNegocio
         /// <returns></returns>
         /// 
 
+        public static DataTable Mostrar()
+        {
+            return new CD_Producto().Mostrar();
+        }
 
         public DataTable MostrarProducto()
         {
@@ -34,21 +38,19 @@ namespace CapadeNegocio
             return tabla;
         }
         public void InsertarProducto(string Codigo_Prod, string Nombre_Prod, int Id_Cat, int Id_Umed, int Id_Proveedor,
-         string Marca_Prod, decimal PrecioCompra_Prod, decimal Precio_Prod,
-         int Stock_Prod, int StockProm_Prod, int StockMin_Prod, string FechCreacion_Prod,
+         string Marca_Prod,string FechCreacion_Prod,
           byte Estado_Prod,  byte[] CodigoBarra, byte[] Imagen)
         {
             objetoCD.InsertarProducto(Codigo_Prod, Nombre_Prod, Id_Cat, Id_Umed, Id_Proveedor,
-                Marca_Prod, PrecioCompra_Prod, Precio_Prod, Stock_Prod, StockProm_Prod, StockMin_Prod, FechCreacion_Prod,
+                Marca_Prod,FechCreacion_Prod,
                 Estado_Prod, CodigoBarra, Imagen);
         }
         public void EditarProducto(string Id_Prod, string Codigo_Prod, string Nombre_Prod, int Id_Cat, int Id_Umed, int Id_Proveedor,
-         string Marca_Prod, decimal PrecioCompra_Prod, decimal Precio_Prod,
-         int Stock_Prod, int StockProm_Prod, int StockMin_Prod, string FechCreacion_Prod
+         string Marca_Prod, string FechCreacion_Prod
          , byte Estado_Prod, byte[] CodigoBarra, byte[] Imagen)
         {
             objetoCD.EditarProducto(Convert.ToInt32(Id_Prod), Codigo_Prod, Nombre_Prod, Id_Cat, Id_Umed, Id_Proveedor,
-                Marca_Prod, PrecioCompra_Prod, Precio_Prod, Stock_Prod, StockProm_Prod, StockMin_Prod, FechCreacion_Prod,
+                Marca_Prod,FechCreacion_Prod,
                 Estado_Prod, CodigoBarra, Imagen);
         }
         public void EliminarProducto(string Id_Prod)

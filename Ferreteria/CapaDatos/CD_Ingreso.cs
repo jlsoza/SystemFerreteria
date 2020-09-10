@@ -15,7 +15,7 @@ namespace CapaDatos
         //Variables  
         private int _Idingreso;
         private int _Idproveedor;
-        private int _Idtrabajador;
+        private int _Id_USuario;
         private DateTime _Fecha;
         private int  _Tipo_Comprobante;
         private string _Serie;
@@ -37,10 +37,10 @@ namespace CapaDatos
             set { _Idproveedor = value; }
         }
 
-        public int Idtrabajador
+        public int Id_USuario
         {
-            get { return _Idtrabajador; }
-            set { _Idtrabajador = value; }
+            get { return _Id_USuario; }
+            set { _Id_USuario = value; }
         }
 
         public DateTime Fecha
@@ -84,10 +84,10 @@ namespace CapaDatos
         {
 
         }
-        public CD_Ingreso(int idingreso, int idtrabajador, int idproveedor, DateTime fecha, int tipo_comprobante, string serie, string correlativo, decimal igv, string estado)
+        public CD_Ingreso(int idingreso, int id_usuario, int idproveedor, DateTime fecha, int tipo_comprobante, string serie, string correlativo, decimal igv, string estado)
         {
             this.Idingreso = idingreso;
-            this.Idtrabajador = idtrabajador;
+            this.Id_USuario = id_usuario;
             this.Idproveedor = idproveedor;
             this.Fecha = fecha;
             this.Tipo_Comprobante = tipo_comprobante;
@@ -125,9 +125,9 @@ namespace CapaDatos
                 SqlCmd.Parameters.Add(ParIdingreso);
 
                 SqlParameter ParIdTrabajador = new SqlParameter();
-                ParIdTrabajador.ParameterName = "@idtrabajador";
+                ParIdTrabajador.ParameterName = "@Id_USuario";
                 ParIdTrabajador.SqlDbType = SqlDbType.Int;
-                ParIdTrabajador.Value = Ingreso.Idtrabajador;
+                ParIdTrabajador.Value = Ingreso.Id_USuario ;
                 SqlCmd.Parameters.Add(ParIdTrabajador);
 
                 SqlParameter ParIdproveedor = new SqlParameter();
@@ -144,7 +144,7 @@ namespace CapaDatos
                 SqlCmd.Parameters.Add(ParFecha);
 
                 SqlParameter ParTipo_Comprobante = new SqlParameter();
-                ParTipo_Comprobante.ParameterName = "@tipo_comprobante";
+                ParTipo_Comprobante.ParameterName = "@Id_TipCom";
                 ParTipo_Comprobante.SqlDbType = SqlDbType.Int;
                 //ParTipo_Comprobante.Size = 20;
                 ParTipo_Comprobante.Value = Ingreso.Tipo_Comprobante;

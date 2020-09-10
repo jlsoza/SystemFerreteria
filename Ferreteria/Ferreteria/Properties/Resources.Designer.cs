@@ -63,6 +63,16 @@ namespace Ferreteria.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _047_mail {
+            get {
+                object obj = ResourceManager.GetObject("_047_mail", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap circulo_verde24x24 {
             get {
                 object obj = ResourceManager.GetObject("circulo_verde24x24", resourceCulture);
@@ -96,6 +106,26 @@ namespace Ferreteria.Properties {
         internal static System.Drawing.Bitmap ImgDefecto {
             get {
                 object obj = ResourceManager.GetObject("ImgDefecto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap massRexx_64 {
+            get {
+                object obj = ResourceManager.GetObject("massRexx_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menossRex_64 {
+            get {
+                object obj = ResourceManager.GetObject("menossRex_64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

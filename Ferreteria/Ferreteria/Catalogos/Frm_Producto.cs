@@ -45,11 +45,6 @@ namespace Ferreteria
             txtproducto.Focus();
             txtmarca.Clear();
             txtmarca.Focus();
-            txtPrecioCompra.Text = "0,00";
-            txtPrecioproducto.Text = "0,00";
-            txtStock.Text ="0";
-            txtStockPromedio .Text = "0";
-            txtStockMin .Text = "0";
             cboCategoria.Text = "Seleccione una Categoria";
             cboProveedor.Text = "Seleccione un Proveedor";
             cboUnidMed.Text = "Seleccione una Unidad de Medida";
@@ -63,11 +58,6 @@ namespace Ferreteria
             txtCodigo_Prod.Enabled = true;
             txtproducto.Enabled = true;
             txtmarca.Enabled = true;
-            txtPrecioCompra.Enabled = true;
-            txtPrecioproducto.Enabled = true;
-            txtStock.Enabled = true;
-            txtStockPromedio.Enabled = true;
-            txtStockMin.Enabled = true;
             cboCategoria.Enabled = true;
             cboProveedor.Enabled = true;
             cboUnidMed.Enabled = true;
@@ -172,11 +162,6 @@ namespace Ferreteria
                 txtCodigo_Prod.Text = drv["Codigo_Prod"].ToString();
                 txtproducto.Text = drv["Nombre_Prod"].ToString();
                 txtmarca.Text = drv["Marca_Prod"].ToString();
-                txtPrecioCompra.Text = drv["PrecioCompra_Prod"].ToString();
-                txtPrecioproducto.Text = drv["Precio_Prod"].ToString();
-                txtStock.Text = drv["Stock_Prod"].ToString();
-                txtStockPromedio.Text = drv["StockProm_Prod"].ToString();
-                txtStockMin.Text = drv["StockMin_Prod"].ToString();
                 dtpfecha.Text = drv["FechCreacion_Prod"].ToString();
               
                 Id_Prod = drv["Id_Prod"].ToString();
@@ -303,12 +288,7 @@ namespace Ferreteria
               
                     {
                        
-                        decimal PrecioCompra = Convert.ToDecimal(txtPrecioCompra.Text);
-                        decimal Precioproducto = Convert.ToDecimal(txtPrecioproducto.Text);
-                        int Stock = Convert.ToInt32(txtStock.Text);
-                        int StockPromedio = Convert.ToInt32(txtStockPromedio.Text);
-                        int StockMin = Convert.ToInt32(txtStockMin.Text);
-
+                       
                         int Categoria;
                         Categoria = Convert.ToInt32(cboCategoria.SelectedValue);
                         int Proveedor;
@@ -328,8 +308,8 @@ namespace Ferreteria
                         PCTCodigoBarra.Image.Save(ms1, System.Drawing.Imaging.ImageFormat.Png);
                         byte[] CodigoBarra = ms1.GetBuffer();
 
-                        objetoCN.InsertarProducto(txtCodigo_Prod.Text, txtproducto.Text, Categoria, UnidadMedida, Proveedor, txtmarca.Text 
-                        ,PrecioCompra , Precioproducto, Stock, StockPromedio, StockMin, dtpfecha.Text  ,1, CodigoBarra, imagen);
+                        objetoCN.InsertarProducto(txtCodigo_Prod.Text, txtproducto.Text, Categoria, UnidadMedida, Proveedor, txtmarca.Text ,
+                         dtpfecha.Text  ,1, CodigoBarra, imagen);
                         MessageBox.Show("Se inserto correctamente", "Proceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MostrarProducto();
                         limpiarForm();
@@ -349,11 +329,7 @@ namespace Ferreteria
                     try
                     {
 
-                        decimal PrecioCompra = Convert.ToDecimal(txtPrecioCompra.Text);
-                        decimal Precioproducto = Convert.ToDecimal(txtPrecioproducto.Text);
-                        int Stock = Convert.ToInt32(txtStock.Text);
-                        int StockPromedio = Convert.ToInt32(txtStockPromedio.Text);
-                        int StockMin = Convert.ToInt32(txtStockMin.Text);
+                                              
 
                         int Categoria;
                         Categoria = Convert.ToInt32(cboCategoria.SelectedValue);
@@ -374,7 +350,7 @@ namespace Ferreteria
                         byte[] CodigoBarra = ms1.GetBuffer();
 
                         objetoCN.EditarProducto(Id_Prod, txtCodigo_Prod.Text, txtproducto.Text, Categoria, UnidadMedida, Proveedor, txtmarca.Text
-                        , PrecioCompra, Precioproducto, Stock, StockPromedio, StockMin, dtpfecha.Text, 1,  CodigoBarra, imagen);
+                        , dtpfecha.Text, 1,  CodigoBarra, imagen);
                         MessageBox.Show("Se edito correctamente", "Proceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MostrarProducto();
                         Editar = false;

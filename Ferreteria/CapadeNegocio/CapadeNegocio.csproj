@@ -47,6 +47,7 @@
     <Compile Include="CNProveedor.cs" />
     <Compile Include="CN_Cliente.cs" />
     <Compile Include="CN_Compra.cs" />
+    <Compile Include="CN_Comprobante.cs" />
     <Compile Include="CN_Ingresos.cs" />
     <Compile Include="CN_Moneda.cs" />
     <Compile Include="CN_Sucursal.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="CN_TipoMovimiento.cs" />
     <Compile Include="CN_TipoPago.cs" />
     <Compile Include="CN_UnidadM.cs" />
+    <Compile Include="CN_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>

@@ -46,6 +46,7 @@
     <Compile Include="CD_Categorias.cs" />
     <Compile Include="CD_Cliente.cs" />
     <Compile Include="CD_Compra.cs" />
+    <Compile Include="CD_Comprobante.cs" />
     <Compile Include="CD_DetalleIngreso.cs" />
     <Compile Include="CD_Ingreso.cs" />
     <Compile Include="CD_Moneda.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="CD_TipoMovimiento.cs" />
     <Compile Include="CD_TipoPago.cs" />
     <Compile Include="CD_UnidadM.cs" />
+    <Compile Include="CD_Usuario.cs" />
     <Compile Include="ConexionBD.cs" />
     <Compile Include="Generico.cs" />
     <Compile Include="Log.cs" />

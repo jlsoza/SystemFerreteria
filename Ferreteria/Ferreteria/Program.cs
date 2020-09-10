@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ferreteria.MenuPrincipal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Ferreteria
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_IngresoAlmacen());
+            Application.Run(new MenuPrincipal.Menu());
         }
     }
 }

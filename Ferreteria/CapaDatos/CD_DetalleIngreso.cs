@@ -15,7 +15,7 @@ namespace CapaDatos
         //Variables  
         private int _Iddetalle_ingreso;
         private int _Idingreso;
-        private int _Idarticulo;
+        private int _Id_Prod;
         private decimal _Precio_Compra;
         private decimal _precio_Venta;
         private int _Stock_Inicial;
@@ -45,10 +45,10 @@ namespace CapaDatos
             set { _Idingreso = value; }
         }
 
-        public int Idarticulo
+        public int Id_Prod
         {
-            get { return _Idarticulo; }
-            set { _Idarticulo = value; }
+            get { return _Id_Prod; }
+            set { _Id_Prod = value; }
         }
 
         public decimal Precio_Compra
@@ -94,11 +94,11 @@ namespace CapaDatos
 
 
         }
-        public CD_DetalleIngreso(int iddetalle_ingreso, int idingreso, int idarticulo, decimal precio_compra, decimal precio_venta, int stock_inicial, int stock_actual, DateTime fecha_produccion, DateTime fecha_vencimiento, string textoBuscar)
+        public CD_DetalleIngreso(int iddetalle_ingreso, int idingreso, int Id_Prod, decimal precio_compra, decimal precio_venta, int stock_inicial, int stock_actual, DateTime fecha_produccion, DateTime fecha_vencimiento, string textoBuscar)
         {
             this.Iddetalle_ingreso = iddetalle_ingreso;
             this.Idingreso = idingreso;
-            this.Idarticulo = idarticulo;
+            this.Id_Prod = Id_Prod;
             this.Precio_Compra = precio_compra;
             this.Precio_Venta = precio_venta;
             this.Stock_Inicial = stock_inicial;
@@ -137,9 +137,9 @@ namespace CapaDatos
                 SqlCmd.Parameters.Add(ParIdingreso);
 
                 SqlParameter ParIdarticulo = new SqlParameter();
-                ParIdarticulo.ParameterName = "@idarticulo";
+                ParIdarticulo.ParameterName = "@Id_Prod";
                 ParIdarticulo.SqlDbType = SqlDbType.Int;
-                ParIdarticulo.Value = Detalle_Ingreso.Idarticulo;
+                ParIdarticulo.Value = Detalle_Ingreso.Id_Prod;
                 SqlCmd.Parameters.Add(ParIdarticulo);
 
                 SqlParameter ParPrecio_Compra = new SqlParameter();
@@ -227,7 +227,7 @@ namespace CapaDatos
         //Método Mostrar  
         public DataTable spmostrar_detalle_ingresoymodificar()
         {
-            DataTable DtResultado = new DataTable("articulo");
+            DataTable DtResultado = new DataTable("Tbl_Producto");
             SqlConnection SqlCon = new SqlConnection();
             try
             {
@@ -252,7 +252,7 @@ namespace CapaDatos
         //Método BuscarNombre  
         public DataTable spmostrar_detalle_ingresoNombre(CD_DetalleIngreso Producto)
         {
-            DataTable DtResultado = new DataTable("articulo");
+            DataTable DtResultado = new DataTable("Tbl_Producto");
           //  SqlConnection SqlCon = new SqlConnection();
             try
             {
@@ -283,7 +283,7 @@ namespace CapaDatos
 
         public DataTable spmostrar_detalle_ingresoCodigo(CD_DetalleIngreso Producto)
         {
-            DataTable DtResultado = new DataTable("articulo");
+            DataTable DtResultado = new DataTable("Tbl_Producto");
            /// SqlConnection SqlCon = new SqlConnection();
             try
             {

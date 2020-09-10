@@ -47,10 +47,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.52, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -100,6 +105,24 @@
     <Compile Include="Catalogos\Frm_Categoria.Designer.cs">
       <DependentUpon>Frm_Categoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Listado\Frm_ListadoProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listado\Frm_ListadoProductos.Designer.cs">
+      <DependentUpon>Frm_ListadoProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuPrincipal\Frm_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuPrincipal\Frm_Menu.Designer.cs">
+      <DependentUpon>Frm_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuPrincipal\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuPrincipal\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Catalogos\Frm_Categoria.resx">
@@ -119,6 +142,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\Frm_Proveedor.resx">
       <DependentUpon>Frm_Proveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listado\Frm_ListadoProductos.resx">
+      <DependentUpon>Frm_ListadoProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuPrincipal\Frm_Menu.resx">
+      <DependentUpon>Frm_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuPrincipal\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -174,6 +206,9 @@
     <PackageReference Include="BarcodeLib">
       <Version>1.0.0.23</Version>
     </PackageReference>
+    <PackageReference Include="bunit">
+      <Version>1.0.0-beta-9</Version>
+    </PackageReference>
     <PackageReference Include="CircularProgressBar">
       <Version>2.8.0.16</Version>
     </PackageReference>
@@ -182,14 +217,15 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\massRexx_64.png" />
+    <Content Include="Resources\menossRex_64.png" />
     <None Include="Resources\ImgDefecto.jpg" />
     <None Include="Resources\CirculoNaranja24x24.png" />
+    <Content Include="Resources\047-mail.png" />
     <Content Include="Resources\circulorojo_24x24.png" />
     <None Include="Resources\circulo_verde24x24.png" />
     <Content Include="Resources\Default.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MenuPrincipal\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

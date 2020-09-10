@@ -23,6 +23,31 @@ namespace CapaDatos
             get { return CD_Producto._intancia; }
         }
 
+        public DataTable Mostrar()
+        {
+            DataTable DtResultado = new DataTable("Tbl_Producto");
+            //SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlConnection cn = ConexionBD.Instancia.Conectar();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = cn;
+                SqlCmd.CommandText = "Sp_Listado_Articulo";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+            }
+            return DtResultado;
+
+        }
+
+
         public DataTable MostrarProducto()
         {
             comando.Connection = conexion.AbrirConexion();
@@ -50,8 +75,7 @@ namespace CapaDatos
         }
 
         public void InsertarProducto(string Codigo_Prod, string Nombre_Prod, int Id_Cat, int Id_Umed, int Id_Proveedor,
-         string Marca_Prod, decimal PrecioCompra_Prod, decimal Precio_Prod, 
-         int Stock_Prod, int StockProm_Prod,int StockMin_Prod, string FechCreacion_Prod, 
+         string Marca_Prod, string FechCreacion_Prod, 
          byte Estado_Prod, byte [] CodigoBarra, byte[] Imagen)
         {
             //PROCEDIMIENTO
@@ -64,11 +88,11 @@ namespace CapaDatos
             comando.Parameters.AddWithValue("@Id_Umed", Id_Umed);
             comando.Parameters.AddWithValue("@Id_Proveedor", Id_Proveedor);
             comando.Parameters.AddWithValue("@Marca_Prod", Marca_Prod);
-            comando.Parameters.AddWithValue("@PrecioCompra_Prod", PrecioCompra_Prod);
-            comando.Parameters.AddWithValue("@Precio_Prod", Precio_Prod);
-            comando.Parameters.AddWithValue("@Stock_Prod", Stock_Prod);
-            comando.Parameters.AddWithValue("@StockProm_Prod", StockProm_Prod);
-            comando.Parameters.AddWithValue("@StockMin_Prod", StockMin_Prod);
+            //comando.Parameters.AddWithValue("@PrecioCompra_Prod", PrecioCompra_Prod);
+            //comando.Parameters.AddWithValue("@Precio_Prod", Precio_Prod);
+            //comando.Parameters.AddWithValue("@Stock_Prod", Stock_Prod);
+            //comando.Parameters.AddWithValue("@StockProm_Prod", StockProm_Prod);
+            //comando.Parameters.AddWithValue("@StockMin_Prod", StockMin_Prod);
             comando.Parameters.AddWithValue("@FechCreacion_Prod", FechCreacion_Prod);
             //comando.Parameters.AddWithValue("@UsuarioCreacion_Prod", UsuarioCreacion_Prod);
             //comando.Parameters.AddWithValue("@FechUpdate_Prod", FechUpdate_Prod);
@@ -84,8 +108,7 @@ namespace CapaDatos
         }
 
         public void EditarProducto(int Id_Prod, string Codigo_Prod, string Nombre_Prod, int Id_Cat, int Id_Umed, int Id_Proveedor,
-         string Marca_Prod, decimal PrecioCompra_Prod, decimal Precio_Prod,
-         int Stock_Prod, int StockProm_Prod, int StockMin_Prod, string FechCreacion_Prod,
+         string Marca_Prod,string FechCreacion_Prod,
           byte Estado_Prod, byte[] CodigoBarra, byte[] Imagen)
         {
             //PROCEDIMIENTO
@@ -99,11 +122,11 @@ namespace CapaDatos
             comando.Parameters.AddWithValue("@Id_Umed", Id_Umed);
             comando.Parameters.AddWithValue("@Id_Proveedor", Id_Proveedor);
             comando.Parameters.AddWithValue("@Marca_Prod", Marca_Prod);
-            comando.Parameters.AddWithValue("@PrecioCompra_Prod", PrecioCompra_Prod);
-            comando.Parameters.AddWithValue("@Precio_Prod", Precio_Prod);
-            comando.Parameters.AddWithValue("@Stock_Prod", Stock_Prod);
-            comando.Parameters.AddWithValue("@StockProm_Prod", StockProm_Prod);
-            comando.Parameters.AddWithValue("@StockMin_Prod", StockMin_Prod);
+            //comando.Parameters.AddWithValue("@PrecioCompra_Prod", PrecioCompra_Prod);
+            //comando.Parameters.AddWithValue("@Precio_Prod", Precio_Prod);
+            //comando.Parameters.AddWithValue("@Stock_Prod", Stock_Prod);
+            //comando.Parameters.AddWithValue("@StockProm_Prod", StockProm_Prod);
+            //comando.Parameters.AddWithValue("@StockMin_Prod", StockMin_Prod);
             comando.Parameters.AddWithValue("@FechCreacion_Prod", FechCreacion_Prod);
             //comando.Parameters.AddWithValue("@UsuarioCreacion_Prod", UsuarioCreacion_Prod);
             //comando.Parameters.AddWithValue("@FechUpdate_Prod", FechUpdate_Prod);
