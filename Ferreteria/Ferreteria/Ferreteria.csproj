@@ -87,6 +87,12 @@
     <Compile Include="Catalogos\Frm_IngresoAlmacen.Designer.cs">
       <DependentUpon>Frm_IngresoAlmacen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Catalogos\Frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Frm_Login.Designer.cs">
+      <DependentUpon>Frm_Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Catalogos\Frm_Producto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,12 +111,25 @@
     <Compile Include="Catalogos\Frm_Categoria.Designer.cs">
       <DependentUpon>Frm_Categoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Catalogos\Frm_Sucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Frm_Sucursal.Designer.cs">
+      <DependentUpon>Frm_Sucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Frm_Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Frm_Usuario.Designer.cs">
+      <DependentUpon>Frm_Usuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Listado\Frm_ListadoProductos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Listado\Frm_ListadoProductos.Designer.cs">
       <DependentUpon>Frm_ListadoProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="LOCAL.cs" />
     <Compile Include="MenuPrincipal\Frm_Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,11 +156,20 @@
     <EmbeddedResource Include="Catalogos\Frm_IngresoAlmacen.resx">
       <DependentUpon>Frm_IngresoAlmacen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Frm_Login.resx">
+      <DependentUpon>Frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\Frm_Producto.resx">
       <DependentUpon>Frm_Producto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\Frm_Proveedor.resx">
       <DependentUpon>Frm_Proveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Frm_Sucursal.resx">
+      <DependentUpon>Frm_Sucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Frm_Usuario.resx">
+      <DependentUpon>Frm_Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listado\Frm_ListadoProductos.resx">
       <DependentUpon>Frm_ListadoProductos.cs</DependentUpon>
@@ -217,6 +245,8 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\LogoOficial.png" />
+    <None Include="Resources\LogoOficial-removebg-preview.png" />
     <Content Include="Resources\massRexx_64.png" />
     <Content Include="Resources\menossRex_64.png" />
     <None Include="Resources\ImgDefecto.jpg" />

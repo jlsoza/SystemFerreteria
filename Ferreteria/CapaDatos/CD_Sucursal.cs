@@ -5,11 +5,52 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using Entidades;
 
 namespace CapaDatos
 {
     public class CD_Sucursal
     {
+        private static readonly CD_Sucursal _intancia = new CD_Sucursal();
+        public static CD_Sucursal Instancia
+        {
+            get { return CD_Sucursal._intancia; }
+        }
+
+        public List<E_Sucursal> ListarSucursalCombo()
+        {
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            List<E_Sucursal> Lista = null;
+            try
+            {
+                SqlConnection cn = ConexionBD.Instancia.Conectar();
+                cmd = new SqlCommand("spListarSucursalCombo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
+                Lista = new List<E_Sucursal>();
+                while (dr.Read())
+                {
+                    E_Sucursal um = new E_Sucursal();
+                    um.Id_Suc = Convert.ToInt32(dr["Id_Suc"]);
+                    um.Codigo_Suc = dr["Codigo_Suc"].ToString();
+                    um.Direccion_Suc = dr["Direccion_Suc"].ToString();
+                    um.Estado_Suc = dr["Estado_Suc"].ToString();
+                    Lista.Add(um);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return Lista;
+        }
+
+
+
         private ConexionBD conexion = new ConexionBD();
 
         SqlDataReader leer;

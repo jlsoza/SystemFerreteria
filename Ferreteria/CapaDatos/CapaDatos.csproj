@@ -50,6 +50,7 @@
     <Compile Include="CD_DetalleIngreso.cs" />
     <Compile Include="CD_Ingreso.cs" />
     <Compile Include="CD_Moneda.cs" />
+    <Compile Include="CD_NivelAcceso.cs" />
     <Compile Include="CD_Producto.cs" />
     <Compile Include="CD_Sucursal.cs" />
     <Compile Include="CD_TipoDocumento.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="CD_UnidadM.cs" />
     <Compile Include="CD_Usuario.cs" />
     <Compile Include="ConexionBD.cs" />
+    <Compile Include="datSeguridad.cs" />
     <Compile Include="Generico.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

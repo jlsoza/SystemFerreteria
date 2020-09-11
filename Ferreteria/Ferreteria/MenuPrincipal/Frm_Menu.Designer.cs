@@ -38,10 +38,11 @@
             this.lbFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
             this.Titulo = new System.Windows.Forms.Panel();
-            this.btnMinimizar = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Menu = new System.Windows.Forms.Panel();
+            this.btnMinimizar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnListaClientes = new System.Windows.Forms.Button();
@@ -51,10 +52,13 @@
             this.btnproveedor = new System.Windows.Forms.Button();
             this.btnproductos = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.Contenedor.SuspendLayout();
             this.PiedePagina.SuspendLayout();
             this.Titulo.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.Menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,12 +128,39 @@
             // Titulo
             // 
             this.Titulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(40)))), ((int)(((byte)(89)))));
+            this.Titulo.Controls.Add(this.label1);
             this.Titulo.Controls.Add(this.btnMinimizar);
             this.Titulo.Controls.Add(this.btnCerrar);
             this.Titulo.Location = new System.Drawing.Point(-1, 0);
             this.Titulo.Name = "Titulo";
             this.Titulo.Size = new System.Drawing.Size(1136, 43);
             this.Titulo.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Location = new System.Drawing.Point(230, 41);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(905, 581);
+            this.panel1.TabIndex = 6;
+            // 
+            // Menu
+            // 
+            this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(39)))));
+            this.Menu.Controls.Add(this.button1);
+            this.Menu.Controls.Add(this.button2);
+            this.Menu.Controls.Add(this.btnListaClientes);
+            this.Menu.Controls.Add(this.btndetalleventa);
+            this.Menu.Controls.Add(this.btnventa);
+            this.Menu.Controls.Add(this.btnempleados);
+            this.Menu.Controls.Add(this.btnproveedor);
+            this.Menu.Controls.Add(this.btnproductos);
+            this.Menu.Controls.Add(this.btnMenu);
+            this.Menu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Menu.Location = new System.Drawing.Point(0, 0);
+            this.Menu.Name = "Menu";
+            this.Menu.Size = new System.Drawing.Size(230, 715);
+            this.Menu.TabIndex = 2;
             // 
             // btnMinimizar
             // 
@@ -159,30 +190,15 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // panel1
+            // pictureBox1
             // 
-            this.panel1.Location = new System.Drawing.Point(230, 41);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(905, 581);
-            this.panel1.TabIndex = 6;
-            // 
-            // Menu
-            // 
-            this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(39)))));
-            this.Menu.Controls.Add(this.button1);
-            this.Menu.Controls.Add(this.button2);
-            this.Menu.Controls.Add(this.btnListaClientes);
-            this.Menu.Controls.Add(this.btndetalleventa);
-            this.Menu.Controls.Add(this.btnventa);
-            this.Menu.Controls.Add(this.btnempleados);
-            this.Menu.Controls.Add(this.btnproveedor);
-            this.Menu.Controls.Add(this.btnproductos);
-            this.Menu.Controls.Add(this.btnMenu);
-            this.Menu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Menu.Location = new System.Drawing.Point(0, 0);
-            this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(230, 715);
-            this.Menu.TabIndex = 2;
+            this.pictureBox1.Image = global::Ferreteria.Properties.Resources.LogoOficial_removebg_preview;
+            this.pictureBox1.Location = new System.Drawing.Point(191, 37);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(540, 513);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // button1
             // 
@@ -352,6 +368,17 @@
             this.btnMenu.TabStop = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft NeoGothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Yellow;
+            this.label1.Location = new System.Drawing.Point(554, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(233, 36);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "MENU PRINCIPAL";
+            // 
             // Frm_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -367,7 +394,10 @@
             this.PiedePagina.ResumeLayout(false);
             this.PiedePagina.PerformLayout();
             this.Titulo.ResumeLayout(false);
+            this.Titulo.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.Menu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
             this.ResumeLayout(false);
 
@@ -396,5 +426,7 @@
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

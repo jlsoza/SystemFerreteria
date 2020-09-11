@@ -113,6 +113,26 @@ namespace Ferreteria.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LogoOficial {
+            get {
+                object obj = ResourceManager.GetObject("LogoOficial", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LogoOficial_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("LogoOficial-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap massRexx_64 {
             get {
                 object obj = ResourceManager.GetObject("massRexx_64", resourceCulture);

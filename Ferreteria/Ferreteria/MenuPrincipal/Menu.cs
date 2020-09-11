@@ -9,20 +9,84 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades;
+using Login_Desing;
 
 namespace Ferreteria.MenuPrincipal
 {
     public partial class Menu : Form
     {
-        public Menu()
+        E_usuario u = new E_usuario();
+
+        public Menu(E_usuario usuario)
         {
             InitializeComponent();
+            u = usuario;
             DeslizarArchivos.Start();
             DeslizarComponentes.Start();
             DeslizarMovimientos.Start();
         }
 
-            
+        private void RestriccionesUsuario()
+        {
+            try
+            {
+                if (u.nivel_acceso.Numero_NivelAcc == 1)
+                {
+                    btncatalogo.Enabled = true;
+                    btnProducto.Enabled = true;
+                    btnProveedor.Enabled = true;
+                    btnUsuarios.Enabled = true;
+                    btnclientes.Enabled = true;
+                    btncategorias.Enabled = true;
+                    BtnCompras.Enabled = true;
+                    btnIngreso.Enabled = true;
+                    btndetalleIngreso.Enabled = true;
+                    Btnventas.Enabled = true;
+                    btndetalleventas.Enabled = true; 
+                }
+
+                if (u.nivel_acceso.Numero_NivelAcc == 2)
+                {
+                    btncatalogo.Enabled = false ;
+                    btnProducto.Enabled = false ;
+                    btnProveedor.Enabled = false ;
+                    btnUsuarios.Enabled = false ;
+                    btnclientes.Enabled = true;
+                    btncategorias.Enabled = false ;
+                    BtnCompras.Enabled = true;
+                    btnIngreso.Enabled = false ;
+                    btndetalleIngreso.Enabled = false ;
+                    Btnventas.Enabled = true;
+                    btndetalleventas.Enabled = true;
+                }
+
+                if (u.nivel_acceso.Numero_NivelAcc == 3)
+                {
+                    btncatalogo.Enabled = false;
+                    btnProducto.Enabled = true ;
+                    btnProveedor.Visible  = false  ;
+                    btnUsuarios.Enabled = false;
+                    btnUsuarios.Visible  = false;
+                    btnclientes.Enabled = false ;
+                    btncategorias.Enabled = true ;
+                    BtnCompras.Visible  = true ;
+                    btnIngreso.Enabled = true ;
+                    btndetalleIngreso.Enabled = true;
+                    Btnventas.Visible  = true ;
+                    btniventas.Visible = false;
+                    btndetalleventas.Visible  = false ;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
 
         private void btncatalogo_Click_1(object sender, EventArgs e)
         {
@@ -264,6 +328,50 @@ namespace Ferreteria.MenuPrincipal
         private void btncategorias_Click(object sender, EventArgs e)
         {
             Frm_Categoria fm = new Frm_Categoria();
+            //fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                // recorre todos los formularios abiertos en busca de frmLogeo
+                Form frmlogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Frm_Login);
+                if (frmlogin != null)
+                {
+                    frmlogin.Visible = false;
+                }
+
+                Form frnselecsuc = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Frm_Sucursal);
+                // si existe una instancia de frmlogeo:  visible = false (oculta)
+                if (frnselecsuc != null)
+                {
+                    frnselecsuc.Visible = false;
+                }
+
+                lblusuario .Text = "Bienvenido: " + u.Nombre_Usuario  ;
+                lbldescripcion2.Text = "Sucursal : "+ u.sucursal.Direccion_Suc + " Nivel de acceso:" + u.nivel_acceso.Numero_NivelAcc   ;
+
+                RestriccionesUsuario();
+            }
+            catch (ArgumentNullException ne)
+            {
+
+                MessageBox.Show(ne.Message, "Aviso",
+                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Aviso",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            Frm_Usuario fm = new Frm_Usuario();
             //fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }

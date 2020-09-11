@@ -44,10 +44,13 @@
   <ItemGroup>
     <Compile Include="E_Categoria.cs" />
     <Compile Include="E_Comprobante.cs" />
+    <Compile Include="E_Nivel_Acceso.cs" />
     <Compile Include="E_Producto.cs" />
     <Compile Include="E_Proveedor.cs" />
+    <Compile Include="E_Sucursal.cs" />
     <Compile Include="E_TipoDoc.cs" />
     <Compile Include="E_UnidadMedida.cs" />
+    <Compile Include="E_usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>

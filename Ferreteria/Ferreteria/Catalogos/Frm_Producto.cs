@@ -389,6 +389,11 @@ namespace Ferreteria
             }
         }
 
+        private void cboCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void Nuevo_Click(object sender, EventArgs e)
         {
             eliminarErrorProvider();

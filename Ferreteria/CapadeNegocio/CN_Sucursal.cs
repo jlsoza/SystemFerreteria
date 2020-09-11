@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CapaDatos;
 using System.Data;
 using System.Data.SqlClient;
+using Entidades;
 
 namespace CapadeNegocio
 {
@@ -16,6 +17,25 @@ namespace CapadeNegocio
         /// //
         /// </summary>
         /// <returns></returns>
+        /// 
+        private static readonly CN_Sucursal _intancia = new CN_Sucursal();
+        public static CN_Sucursal Instancia
+        {
+            get { return CN_Sucursal._intancia; }
+        }
+        public List<E_Sucursal> ListaSucursalCombo()
+        {
+            try
+            {
+                return CD_Sucursal.Instancia.ListarSucursalCombo ();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
         public DataTable MostrarSucursal()
         {
             DataTable tabla = new DataTable();

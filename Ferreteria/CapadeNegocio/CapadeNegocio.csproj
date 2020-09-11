@@ -50,6 +50,7 @@
     <Compile Include="CN_Comprobante.cs" />
     <Compile Include="CN_Ingresos.cs" />
     <Compile Include="CN_Moneda.cs" />
+    <Compile Include="CN_NivelAcceso.cs" />
     <Compile Include="CN_Sucursal.cs" />
     <Compile Include="CN_TipoDoc.cs" />
     <Compile Include="CN_TipoMovimiento.cs" />
