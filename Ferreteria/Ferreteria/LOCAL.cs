@@ -115,5 +115,152 @@ namespace Ferreteria
                 throw;
             }
         }
+
+
+        public List<E_Producto > ReturnDetVenta(int getset, int idprod, int cantidad)
+        {
+            try
+            {
+                if (getset == 1)
+                {
+                    if (cantidad > 1)
+                    {
+                        for (int i = 0; i < detBoleta.Count; i++)
+                        {
+                            if (detBoleta[i].Id_Prod == idprod)
+                            {
+                                detBoleta[i].Cantidad_ = cantidad;
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+
+                        for (int i = 0; i < detBoleta.Count; i++)
+                        {
+                            if (detBoleta[i].Id_Prod == idprod)
+                            {
+                                throw new ApplicationException("Este producto ya fue agreado");
+                            }
+                        }
+                        E_Producto  pr = CNProducto .Instancia.BuscarProducto(idprod);
+                        pr.Cantidad_ = cantidad;
+                        detBoleta.Add(pr);
+                    }
+                }
+                return detBoleta;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public List<E_Producto > ReturnDetNotaVenta(int getset, int idprod, int cantidad)
+        {
+            try
+            {
+                if (getset == 1)
+                {
+                    if (cantidad > 1)
+                    {
+                        for (int i = 0; i < detNotaVenta.Count; i++)
+                        {
+                            if (detNotaVenta[i].Id_Prod == idprod)
+                            {
+                                detNotaVenta[i].Cantidad_ = cantidad;
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < detNotaVenta.Count; i++)
+                        {
+                            if (detNotaVenta[i].Id_Prod == idprod)
+                            {
+                                throw new ApplicationException("Este producto ya fue agreado");
+                            }
+                        }
+                        E_Producto pr = CNProducto .Instancia.BuscarProducto(idprod);
+                        pr.Cantidad_ = cantidad;
+                        detNotaVenta.Add(pr);
+                    }
+                }
+                return detNotaVenta;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void QuitarItemPorducto(int id_prod)
+        {
+            try
+            {
+                foreach (E_Producto  p in detBoleta)
+                {
+                    if (p.Id_Prod == id_prod)
+                    {
+                        detBoleta.Remove(p);
+                        return;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void QuitarItemPorductoNV(int id_prod)
+        {
+            try
+            {
+                foreach (E_Producto  p in detNotaVenta)
+                {
+                    if (p.Id_Prod == id_prod)
+                    {
+                        detNotaVenta.Remove(p);
+                        return;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void LimpiarDetalleVenta()
+        {
+            try
+            {
+                detBoleta.RemoveRange(0, detBoleta.Count);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void LimpiarDetalNV()
+        {
+            try
+            {
+                detNotaVenta.RemoveRange(0, detNotaVenta.Count);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

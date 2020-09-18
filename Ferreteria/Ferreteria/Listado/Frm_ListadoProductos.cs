@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CapaDatos;
 using CapadeNegocio;
 using System.IO;
+using Entidades;
 namespace Ferreteria
 {
     public partial class Frm_ListadoProductos : Form
@@ -165,10 +166,12 @@ namespace Ferreteria
         //METODOS PARA CERRAR,MAXIMIZAR, MINIMIZAR FORMULARIO------------------------------------------------------
         int lx, ly;
         int sw, sh;
+        Int32 idUsuario;
 
+        E_usuario u = new E_usuario();
         private void dataListado_DoubleClick(object sender, EventArgs e)
         {
-            Frm_IngresoAlmacen IngresoA = Frm_IngresoAlmacen.GetInstancia();
+            Frm_IngresoAlmacen IngresoA = Frm_IngresoAlmacen.GetInstancia(idUsuario);
             string par1, par2;
             par1 = Convert.ToString(this.dataListado.CurrentRow.Cells["Id_Prod"].Value);
             par2 = Convert.ToString(this.dataListado.CurrentRow.Cells["Nombre_Prod"].Value);

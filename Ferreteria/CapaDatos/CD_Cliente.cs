@@ -5,11 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using Entidades;
 
 namespace CapaDatos
 {
     public class CD_Cliente
     {
+
+        #region singleton
+        private static readonly CD_Cliente _intancia = new CD_Cliente();
+        public static CD_Cliente Intancia
+        {
+            get { return CD_Cliente._intancia; }
+        }
+        #endregion singleton
+
         private ConexionBD conexion = new ConexionBD();
 
         SqlDataReader leer;
@@ -99,6 +109,117 @@ namespace CapaDatos
             comando.ExecuteNonQuery();
 
             comando.Parameters.Clear();
+        }
+
+
+        public List<E_TipoDoc> ListarTipDoc()
+        {
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            List<E_TipoDoc> Lista = null;
+            try
+            {
+                SqlConnection cn = ConexionBD.Instancia.Conectar();
+                cmd = new SqlCommand("spListarTipDoc", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
+                Lista = new List<E_TipoDoc>();
+                while (dr.Read())
+                {
+                    E_TipoDoc td = new E_TipoDoc();
+                    td.Id_TipDoc = Convert.ToInt32(dr["Id_TipDoc"]);
+                    td.Abreviatura_TipDoc = dr["Abreviatura_TipDoc"].ToString();
+                    Lista.Add(td);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return Lista;
+        }
+
+        public E_cliente BuscarCliente(int id_Cli, String nro_Doc)
+        {
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            E_cliente c = null;
+            try
+            {
+                SqlConnection cn = ConexionBD.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarCliente", cn);
+                cmd.Parameters.AddWithValue("@prmidCliente", id_Cli);
+                cmd.Parameters.AddWithValue("@prmNroDoc", nro_Doc);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    c = new E_cliente();
+                    c.Id_Cliente = Convert.ToInt32(dr["Id_Cliente"]);
+                    E_TipoDoc td = new E_TipoDoc();
+                    td.Id_TipDoc = Convert.ToInt32(dr["Id_TipDoc"].ToString());
+                    td.Nombre_TipDoc = dr["Nombre_TipDoc"].ToString();
+                    c.tipodocumento = td;
+                    c.NumeroDoc_Cliente = dr["NumeroDoc_Cliente"].ToString();
+                    c.Nombre_Cliente = dr["Nombre_Cliente"].ToString();
+                    c.Telefono_Cliente = dr["Telefono_Cliente"].ToString();
+                    c.Celular_Cliente = dr["Celular_Cliente"].ToString();
+                    c.Correo_Cliente = dr["Correo_Cliente"].ToString();
+                    c.Direccion_Cliente = dr["Direccion_Cliente"].ToString();
+                    c.FechaNac_Cliente = dr["FechaNac_Cliente"].ToString();
+                    c.Sexo_Cliente = dr["Sexo_Cliente"].ToString();
+
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return c;
+        }
+        public List<E_cliente > ListarCliente()
+        {
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            List<E_cliente> Lista = null;
+            try
+            {
+                SqlConnection cn = ConexionBD.Instancia.Conectar();
+                cmd = new SqlCommand("spListarCliente", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
+                Lista = new List<E_cliente>();
+                while (dr.Read())
+                {
+                    E_cliente c = new E_cliente();
+                    c.Id_Cliente = Convert.ToInt32(dr["Id_Cliente"]);
+                    E_TipoDoc  td = new E_TipoDoc();
+                    td.Nombre_TipDoc = dr["Nombre_TipDoc"].ToString();
+                    c.tipodocumento = td;
+                    c.NumeroDoc_Cliente = dr["NumeroDoc_Cliente"].ToString();
+                    c.Nombre_Cliente = dr["Nombre_Cliente"].ToString();
+                    c.Telefono_Cliente = dr["Telefono_Cliente"].ToString();
+                    c.Celular_Cliente = dr["Celular_Cliente"].ToString();
+                    c.Correo_Cliente = dr["Correo_Cliente"].ToString();
+                    c.Direccion_Cliente = dr["Direccion_Cliente"].ToString();
+                    Lista.Add(c);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { cmd.Connection.Close(); }
+            return Lista;
         }
     }
 }

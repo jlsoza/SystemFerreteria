@@ -76,7 +76,7 @@ namespace CapaDatos
 
         public void InsertarProducto(string Codigo_Prod, string Nombre_Prod, int Id_Cat, int Id_Umed, int Id_Proveedor,
          string Marca_Prod, string FechCreacion_Prod, 
-         byte Estado_Prod, byte [] CodigoBarra, byte[] Imagen)
+         byte Estado_Prod, byte [] CodigoBarra, byte[] Imagen, int UsuarioCreacion_Prod, int UsuarioUpdate_Prod)
         {
             //PROCEDIMIENTO
             comando.Connection = conexion.AbrirConexion();
@@ -100,6 +100,8 @@ namespace CapaDatos
             comando.Parameters.AddWithValue("@Estado_Prod", Estado_Prod);
             comando.Parameters.AddWithValue("@CodigoBarra", CodigoBarra);
             comando.Parameters.AddWithValue("@Imagen", Imagen);
+            comando.Parameters.AddWithValue("@UsuarioCreacion_Prod", UsuarioCreacion_Prod);
+            comando.Parameters.AddWithValue("@UsuarioUpdate_Prod", UsuarioUpdate_Prod);
 
 
             comando.ExecuteNonQuery();
@@ -109,7 +111,7 @@ namespace CapaDatos
 
         public void EditarProducto(int Id_Prod, string Codigo_Prod, string Nombre_Prod, int Id_Cat, int Id_Umed, int Id_Proveedor,
          string Marca_Prod,string FechCreacion_Prod,
-          byte Estado_Prod, byte[] CodigoBarra, byte[] Imagen)
+          byte Estado_Prod, byte[] CodigoBarra, byte[] Imagen,  int UsuarioUpdate_Prod)
         {
             //PROCEDIMIENTO
             comando.Connection = conexion.AbrirConexion();
@@ -134,6 +136,8 @@ namespace CapaDatos
             comando.Parameters.AddWithValue("@Estado_Prod", Estado_Prod);
             comando.Parameters.AddWithValue("@CodigoBarra", CodigoBarra);
             comando.Parameters.AddWithValue("@Imagen", Imagen);
+            //comando.Parameters.AddWithValue("@UsuarioCreacion_Prod", UsuarioCreacion_Prod);
+            comando.Parameters.AddWithValue("@UsuarioUpdate_Prod", UsuarioUpdate_Prod);
             comando.ExecuteNonQuery();
 
             comando.Parameters.Clear();
@@ -255,20 +259,20 @@ namespace CapaDatos
             E_Producto p = null;
             try
             {
-                cmd.Connection = conexion.AbrirConexion();
-                cmd.CommandText = "spBuscarProducto";
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@prmId_Prod", id_producto);
-                dr = cmd.ExecuteReader();
-                cmd.Parameters.Clear();
-
-
-                //SqlConnection cn = Conexion.Instancia.Conectar();
-                //cmd = new SqlCommand("spBuscarProducto", cn);
-                //cmd.Parameters.AddWithValue("@prmId_Prod", id_producto);
+                //cmd.Connection = conexion.AbrirConexion();
+                //cmd.CommandText = "spBuscarProducto";
                 //cmd.CommandType = CommandType.StoredProcedure;
-                //cn.Open();
-               // dr = cmd.ExecuteReader();
+                //cmd.Parameters.AddWithValue("@prmId_Prod", id_producto);
+                //dr = cmd.ExecuteReader();
+                //cmd.Parameters.Clear();
+
+
+                SqlConnection cn = ConexionBD.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarProducto", cn);
+                cmd.Parameters.AddWithValue("@prmId_Prod", id_producto);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
                     p = new E_Producto();
@@ -276,11 +280,8 @@ namespace CapaDatos
                     p.Codigo_Prod = dr["Codigo_Prod"].ToString();
                     p.Nombre_Prod = dr["Nombre_Prod"].ToString();
                     p.Marca_Prod = dr["Marca_Prod"].ToString();
-                    p.PrecioCompra_Prod = Convert.ToDouble(dr["PrecioCompra_Prod"].ToString());
-                    p.Precio_Prod = Convert.ToDouble(dr["Precio_Prod"].ToString());
-                    p.Stock_Prod = Convert.ToInt32(dr["Stock_Prod"]);
-                    p.StockProm_Prod = Convert.ToInt32(dr["StockProm_Prod"]);
-                    p.StockMin_Prod = Convert.ToInt32(dr["StockMin_Prod"]);
+                    p.PrecioCompra_Prod = Convert.ToDouble(dr["precio_venta"].ToString());
+                    p.Precio_Prod = Convert.ToDouble(dr["stock_actual"].ToString());
                     E_Categoria c = new E_Categoria();
                     c.Id_Cat = Convert.ToInt32(dr["Id_Cat"]);
                     p.categoria = c;
@@ -314,23 +315,23 @@ namespace CapaDatos
             try
             {
 
-                cmd.Connection = conexion.AbrirConexion();
-                cmd.CommandText = "spBuscarProdAvanzada";
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@prmTipEntrada", tip_entrada);
-                cmd.Parameters.AddWithValue("@prmValorEntrada", valor_entrada);
-                dr= cmd.ExecuteReader();
-                cmd.Parameters.Clear();
-
-
-                //SqlConnection cn = Conexion.Instancia.Conectar();
-                //cmd = new SqlCommand("spBuscarProdAvanzada", cn);
+                //cmd.Connection = conexion.AbrirConexion();
+                //cmd.CommandText = "spBuscarProdAvanzada";
+                //cmd.CommandType = CommandType.StoredProcedure;
                 //cmd.Parameters.AddWithValue("@prmTipEntrada", tip_entrada);
                 //cmd.Parameters.AddWithValue("@prmValorEntrada", valor_entrada);
+                //dr= cmd.ExecuteReader();
+                //cmd.Parameters.Clear();
 
-                //cmd.CommandType = CommandType.StoredProcedure;
-                //cn.Open();
-               /// dr = cmd.ExecuteReader();
+
+                SqlConnection cn = ConexionBD.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarProdAvanzada", cn);
+                cmd.Parameters.AddWithValue("@prmTipEntrada", tip_entrada);
+                cmd.Parameters.AddWithValue("@prmValorEntrada", valor_entrada);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                dr = cmd.ExecuteReader();
                 Lista = new List<E_Producto>();
                 while (dr.Read())
                 {
@@ -339,8 +340,8 @@ namespace CapaDatos
                     p.Codigo_Prod = dr["Codigo_Prod"].ToString();
                     p.Nombre_Prod = dr["Nombre_Prod"].ToString();
                     p.Marca_Prod = dr["Marca_Prod"].ToString();
-                    p.Precio_Prod = Convert.ToDouble(dr["Precio_Prod"].ToString());
-                    p.Stock_Prod = Convert.ToInt32(dr["Stock_Prod"]);
+                    p.Precio_Prod = Convert.ToDouble(dr["precio_venta"].ToString());
+                    p.Stock_Prod = Convert.ToInt32(dr["stock_actual"]);
                     E_Categoria c = new E_Categoria();
                     c.Nombre_Cat = dr["Nombre_Cat"].ToString();
                     p.categoria = c;
@@ -428,10 +429,10 @@ namespace CapaDatos
                     p.Codigo_Prod = dr["Codigo_Prod"].ToString();
                     p.Nombre_Prod = dr["Nombre_Prod"].ToString();
                     p.PrecioCompra_Prod = Convert.ToDouble(dr["PrecioCompra_Prod"]);
-                    p.Precio_Prod = Convert.ToDouble(dr["Precio_Prod"]);
-                    p.Stock_Prod = Convert.ToInt32(dr["Stock_Prod"]);
-                    p.StockProm_Prod = Convert.ToInt32(dr["StockProm_Prod"]);
-                    p.StockMin_Prod = Convert.ToInt32(dr["StockMin_Prod"]);
+                    p.Precio_Prod = Convert.ToDouble(dr["precio_venta"]);
+                    p.Stock_Prod = Convert.ToInt32(dr["stock_actual"]);
+                    //p.StockProm_Prod = Convert.ToInt32(dr["StockProm_Prod"]);
+                    //p.StockMin_Prod = Convert.ToInt32(dr["StockMin_Prod"]);
 
                     E_Categoria c = new E_Categoria();
                     c.Nombre_Cat = dr["Nombre_Cat"].ToString();
@@ -472,6 +473,32 @@ namespace CapaDatos
             }
             finally { cmd.Connection.Close(); }
             return result;
+        }
+
+        public DataTable Stock_Articulos()
+        {
+            DataTable DtResultado = new DataTable("Tbl_Producto");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+               // SqlCon.ConnectionString = Conexion.Cn;
+                SqlConnection cn = ConexionBD.Instancia.Conectar();
+
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = cn;
+                SqlCmd.CommandText = "spstock_articulos";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+            }
+            catch (Exception ex)
+            {
+                DtResultado = null;
+            }
+            return DtResultado;
+
         }
 
     }

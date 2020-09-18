@@ -293,7 +293,7 @@ namespace Ferreteria.MenuPrincipal
         }
         private void btnProducto_Click(object sender, EventArgs e)
         {
-            Frm_Producto fm = new Frm_Producto();
+            Frm_Producto fm = new Frm_Producto(u.Id_Usuario );
             //fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
@@ -320,7 +320,7 @@ namespace Ferreteria.MenuPrincipal
 
         private void btnIngreso_Click(object sender, EventArgs e)
         {
-            Frm_IngresoAlmacen fm = new Frm_IngresoAlmacen();
+            Frm_IngresoAlmacen fm = new Frm_IngresoAlmacen(u.Id_Usuario);
             //fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }
@@ -372,6 +372,13 @@ namespace Ferreteria.MenuPrincipal
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             Frm_Usuario fm = new Frm_Usuario();
+            //fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btniventas_Click(object sender, EventArgs e)
+        {
+            Frm_Venta  fm = new Frm_Venta(u.Id_Usuario);
             //fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }

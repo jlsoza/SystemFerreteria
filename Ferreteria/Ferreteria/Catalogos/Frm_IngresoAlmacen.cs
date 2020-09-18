@@ -22,16 +22,20 @@ namespace Ferreteria
 {
     public partial class Frm_IngresoAlmacen: Form
     {
+
+        Int32 idUsuario;
+
+        E_usuario u = new E_usuario();
         SqlConnection conexion = new SqlConnection(@"Server = DESKTOP-OBLOVHB\SQLEXPRESS; DataBase = BDFerreteria; Integrated Security = true");
 
         CNProducto objetoCN = new CNProducto();
         
         private static Frm_IngresoAlmacen _instancia;
-        public static Frm_IngresoAlmacen GetInstancia()
+        public static Frm_IngresoAlmacen GetInstancia(Int32? id_Usuario)
         {
             if (_instancia == null)
             {
-                _instancia = new Frm_IngresoAlmacen();
+                _instancia = new Frm_IngresoAlmacen(id_Usuario);
             }
             return _instancia;
         }
@@ -44,9 +48,12 @@ namespace Ferreteria
             this.txtproducto.Text = Nombre_Prod;
         }
 
-        public Frm_IngresoAlmacen()
+        public Frm_IngresoAlmacen(Int32? id_Usuario)
         {
             InitializeComponent();
+           // dataListadoDetalle.Visible = true; 
+            //dataListado.Visible = false; 
+            idUsuario = (Int32)id_Usuario;
             this.txtproducto.ReadOnly = true;
         }
 
@@ -92,6 +99,7 @@ namespace Ferreteria
             //Deshabilita los controles  
             this.Habilitar(false);
             LlenarCombos();
+            Mostrar();
             //Establece los botones  
             this.Botones();
             this.crearTabla();
@@ -144,7 +152,8 @@ namespace Ferreteria
         {
             try
             {
-
+               // dataListadoDetalle.Visible = true;
+              //  dataListado.Visible = false;
 
                 string Rpta = "";
                 if (this.txtIdproducto .Text == string.Empty || this.txtStock.Text == string.Empty || txtPrecioCompra .Text == string.Empty || txtPrecioventa .Text == string.Empty)
@@ -262,6 +271,9 @@ namespace Ferreteria
         {
             try
             {
+              //  dataListadoDetalle.Visible = true;
+               // dataListado.Visible = false;
+
                 //Indice dila actualmente seleccionado y que vamos a eliminar  
                 int indiceFila = this.dataListadoDetalle.CurrentCell.RowIndex;
                 //Fila que vamos a eliminar  
@@ -400,6 +412,8 @@ namespace Ferreteria
         private void btncancelar_Click(object sender, EventArgs e)
         {
             this.IsNuevo = false;
+        //    dataListadoDetalle.Visible = true;
+          //  dataListado.Visible = false;
             this.Botones();
             this.Limpiar();
             this.Limpiar();
@@ -417,6 +431,10 @@ namespace Ferreteria
         {
             try
             {
+               // dataListadoDetalle.Visible = false ;
+               // dataListado.Visible = true;
+
+
                 string Rpta = "";
                 if ( this.txtserie .Text == string.Empty || txtcorrelativo .Text == string.Empty || txtigv .Text == string.Empty || dataListadoDetalle.Rows.Count == 0)
                 {
@@ -437,11 +455,14 @@ namespace Ferreteria
                         int Proveedor;
                         Proveedor = Convert.ToInt32(cboProveedor.SelectedValue);
 
+                        CD_Ingreso ingreso = new CD_Ingreso();
+                        ingreso.UsuarioCreacion_Ingreso = idUsuario;
+                        ingreso.UsuarioUpdate_Ingreso  = idUsuario;
 
                         //Vamos a insertar un Ingreso   
-                        Rpta = CN_Ingresos .Insertar(Id_Usuario, Proveedor,
+                        Rpta = CN_Ingresos .Insertar( Proveedor,
                         dtpfecha .Value, Comprobante, txtserie.Text, txtcorrelativo.Text,
-                        Convert.ToDecimal(txtigv.Text), "EMITIDO", dtDetalle);
+                        Convert.ToDecimal(txtigv.Text), "EMITIDO",idUsuario , idUsuario, dtDetalle);
 
                     }
 
@@ -532,6 +553,8 @@ namespace Ferreteria
         private void Nuevo_Click(object sender, EventArgs e)
         {
             this.IsNuevo = true;
+           // dataListadoDetalle.Visible = true;
+           // dataListado.Visible = false;
             this.Botones();
             this.Limpiar();
             this.limpiarDetalle();
@@ -542,6 +565,88 @@ namespace Ferreteria
         //METODOS PARA CERRAR,MAXIMIZAR, MINIMIZAR FORMULARIO------------------------------------------------------
         int lx, ly;
         int sw, sh;
+
+        private void MostrarDetalle()
+        {
+            this.dataListadoDetalle.DataSource = CN_Ingresos.MostrarDetalle(this.txtId_Ingreso.Text);
+
+        }
+
+
+        private void dataListado_DoubleClick(object sender, EventArgs e)
+        {
+            this.txtId_Ingreso .Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idingreso"].Value);
+            this.cboProveedor.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["proveedor"].Value);
+            this.dtpfecha .Value = Convert.ToDateTime(this.dataListado.CurrentRow.Cells["fecha"].Value);
+            this.cmbComprobante .Text = Convert.ToString(this.dataListado.CurrentRow.Cells["tipo_comprobante"].Value);
+            this.txtserie .Text = Convert.ToString(this.dataListado.CurrentRow.Cells["serie"].Value);
+            this.txtcorrelativo .Text = Convert.ToString(this.dataListado.CurrentRow.Cells["correlativo"].Value);
+            this.lblTotal_Pagado.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Total"].Value);
+            this.MostrarDetalle();
+            //this.tabControl1.SelectedIndex = 1;
+        }
+
+        private void chkEliminar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkEliminar.Checked)
+            {
+                this.dataListado.Columns[0].Visible = true;
+            }
+            else
+            {
+                this.dataListado.Columns[0].Visible = false;
+            }
+        }
+
+        //private void OcultarColumnas()
+        //{
+        //    this.dataListado.Columns[0].Visible = false;
+        //    this.dataListado.Columns[1].Visible = false;
+
+        //}
+
+        //Método Mostrar  
+        private void Mostrar()
+        {
+            this.dataListado.DataSource = CN_Ingresos .Mostrar();
+          //  this.OcultarColumnas();
+            lblTotal.Text = "Total de Registros: " + Convert.ToString(dataListado.Rows.Count);
+        }
+
+        private void BuscarFechas()
+        {
+            this.dataListado.DataSource = CN_Ingresos .BuscarFechas(this.dtFecha1.Value.ToString("yyyy/MM/dd"), this.dtFecha2.Value.ToString("yyyy/MM/dd"));
+            //this.OcultarColumnas();
+            lblTotal.Text = "Total de Registros: " + Convert.ToString(dataListado.Rows.Count);
+
+
+        }
+        private void btmbuscar_Click(object sender, EventArgs e)
+        {
+            this.BuscarFechas();
+            double total = 0;
+            foreach (DataGridViewRow row in dataListado.Rows)
+            {
+                total += Convert.ToDouble(row.Cells["Total"].Value);
+            }
+            txttotalingreso.Text = Convert.ToString(total);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Frm_Stock_Productos  stock = new Frm_Stock_Productos();
+            stock.ShowDialog();
+        }
+
+        private void dataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataListado.Columns["Eliminar"].Index)
+            {
+                DataGridViewCheckBoxCell ChkEliminar = (DataGridViewCheckBoxCell)dataListado.Rows[e.RowIndex].Cells["Eliminar"];
+                ChkEliminar.Value = !Convert.ToBoolean(ChkEliminar.Value);
+            }
+        }
+
         private void btnnormal_Click(object sender, EventArgs e)
         {
             this.Size = new Size(sw, sh);

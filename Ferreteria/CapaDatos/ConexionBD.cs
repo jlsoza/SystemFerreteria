@@ -13,6 +13,9 @@ namespace CapaDatos
 {
     public class ConexionBD
     {
+        public static string Cn = Properties.Settings.Default.cn;
+
+
         private static readonly ConexionBD _instancia = new ConexionBD();
         public static ConexionBD Instancia
         {

@@ -67,5 +67,33 @@ namespace Login_Desing
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txtpassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                try
+                {
+                    String usuario = txtusuario.Text;
+                    String password = txtpassword.Text;
+                    E_usuario u = null;
+                    u = CN_Usuario.Instancia.IngresoSisema(usuario, password);
+                    Ferreteria.Frm_Sucursal S = new Ferreteria.Frm_Sucursal(u);
+                    S.Show();
+                }
+                catch (ApplicationException ae)
+                {
+
+                    MessageBox.Show(ae.Message, "Aviso",
+                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

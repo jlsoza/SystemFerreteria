@@ -16,19 +16,21 @@ using iTextSharp.text.pdf;
 using System.Windows.Media;
 using System.Resources;
 using Ferreteria.Properties;
+using Entidades;
 
 namespace Ferreteria
 {
     public partial class Frm_Producto: Form
     {
-             
+        Int32 idUsuario;
 
         CNProducto objetoCN = new CNProducto();
         private string Id_Prod = null;
         private bool Editar = false;
-        public Frm_Producto()
+        public Frm_Producto(Int32? id_Usuario)
         {
             InitializeComponent();
+            idUsuario = (Int32)id_Usuario;
         }
 
        
@@ -302,14 +304,16 @@ namespace Ferreteria
                         byte[] imagen = ms.GetBuffer();
 
 
-                      
+                        E_Producto p = new E_Producto();
+                        p.UsuarioCreacion_Prod = idUsuario;
+                        p.UsuarioUpdate_Prod = idUsuario;
 
                         System.IO.MemoryStream ms1 = new System.IO.MemoryStream();
                         PCTCodigoBarra.Image.Save(ms1, System.Drawing.Imaging.ImageFormat.Png);
                         byte[] CodigoBarra = ms1.GetBuffer();
 
                         objetoCN.InsertarProducto(txtCodigo_Prod.Text, txtproducto.Text, Categoria, UnidadMedida, Proveedor, txtmarca.Text ,
-                         dtpfecha.Text  ,1, CodigoBarra, imagen);
+                         dtpfecha.Text  ,1, CodigoBarra, imagen, idUsuario , idUsuario );
                         MessageBox.Show("Se inserto correctamente", "Proceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MostrarProducto();
                         limpiarForm();
@@ -339,6 +343,8 @@ namespace Ferreteria
                         int UnidadMedida;
                         UnidadMedida = Convert.ToInt32(cboUnidMed.SelectedValue);
 
+                        E_Producto p = new E_Producto();
+                        p.UsuarioUpdate_Prod = idUsuario;
 
 
                         System.IO.MemoryStream ms = new System.IO.MemoryStream();
@@ -350,7 +356,7 @@ namespace Ferreteria
                         byte[] CodigoBarra = ms1.GetBuffer();
 
                         objetoCN.EditarProducto(Id_Prod, txtCodigo_Prod.Text, txtproducto.Text, Categoria, UnidadMedida, Proveedor, txtmarca.Text
-                        , dtpfecha.Text, 1,  CodigoBarra, imagen);
+                        , dtpfecha.Text, 1,  CodigoBarra, imagen, idUsuario);
                         MessageBox.Show("Se edito correctamente", "Proceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MostrarProducto();
                         Editar = false;

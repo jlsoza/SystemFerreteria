@@ -111,11 +111,23 @@
     <Compile Include="Catalogos\Frm_Categoria.Designer.cs">
       <DependentUpon>Frm_Categoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Catalogos\Frm_Stock_Productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Frm_Stock_Productos.Designer.cs">
+      <DependentUpon>Frm_Stock_Productos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Catalogos\Frm_Sucursal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Catalogos\Frm_Sucursal.Designer.cs">
       <DependentUpon>Frm_Sucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Frm_Update_Ingresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Frm_Update_Ingresos.Designer.cs">
+      <DependentUpon>Frm_Update_Ingresos.cs</DependentUpon>
     </Compile>
     <Compile Include="Catalogos\Frm_Usuario.cs">
       <SubType>Form</SubType>
@@ -123,11 +135,29 @@
     <Compile Include="Catalogos\Frm_Usuario.Designer.cs">
       <DependentUpon>Frm_Usuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Catalogos\Frm_Venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Frm_Venta.Designer.cs">
+      <DependentUpon>Frm_Venta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listado\Frm_ClienteVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listado\Frm_ClienteVenta.Designer.cs">
+      <DependentUpon>Frm_ClienteVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Listado\Frm_ListadoProductos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Listado\Frm_ListadoProductos.Designer.cs">
       <DependentUpon>Frm_ListadoProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listado\Frm_ProductosVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listado\Frm_ProductosVenta.Designer.cs">
+      <DependentUpon>Frm_ProductosVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="LOCAL.cs" />
     <Compile Include="MenuPrincipal\Frm_Menu.cs">
@@ -165,14 +195,29 @@
     <EmbeddedResource Include="Catalogos\Frm_Proveedor.resx">
       <DependentUpon>Frm_Proveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Frm_Stock_Productos.resx">
+      <DependentUpon>Frm_Stock_Productos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\Frm_Sucursal.resx">
       <DependentUpon>Frm_Sucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Frm_Update_Ingresos.resx">
+      <DependentUpon>Frm_Update_Ingresos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\Frm_Usuario.resx">
       <DependentUpon>Frm_Usuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Frm_Venta.resx">
+      <DependentUpon>Frm_Venta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listado\Frm_ClienteVenta.resx">
+      <DependentUpon>Frm_ClienteVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Listado\Frm_ListadoProductos.resx">
       <DependentUpon>Frm_ListadoProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listado\Frm_ProductosVenta.resx">
+      <DependentUpon>Frm_ProductosVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal\Frm_Menu.resx">
       <DependentUpon>Frm_Menu.cs</DependentUpon>

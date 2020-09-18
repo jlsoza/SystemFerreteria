@@ -22,6 +22,8 @@ namespace CapaDatos
         private string _Correlativo;
         private decimal _Igv;
         private string _Estado;
+        private int _UsuarioCreacion_Ingreso;
+        private int _UsuarioUpdate_Ingreso;
 
 
         //Propiedades  
@@ -79,12 +81,23 @@ namespace CapaDatos
             set { _Estado = value; }
         }
 
+        public int UsuarioCreacion_Ingreso
+        {
+            get { return _UsuarioCreacion_Ingreso; }
+            set { _UsuarioCreacion_Ingreso = value; }
+        }
+        public int UsuarioUpdate_Ingreso
+        {
+            get { return _UsuarioUpdate_Ingreso; }
+            set { _UsuarioUpdate_Ingreso = value; }
+        }
+
         //Constructores  
         public CD_Ingreso()
         {
 
         }
-        public CD_Ingreso(int idingreso, int id_usuario, int idproveedor, DateTime fecha, int tipo_comprobante, string serie, string correlativo, decimal igv, string estado)
+        public CD_Ingreso(int idingreso, int id_usuario, int idproveedor, DateTime fecha, int tipo_comprobante, string serie, string correlativo, decimal igv, string estado,int usuarioCreacion_Ingreso, int usuarioUpdate_Ingreso)
         {
             this.Idingreso = idingreso;
             this.Id_USuario = id_usuario;
@@ -95,7 +108,11 @@ namespace CapaDatos
             this.Correlativo = correlativo;
             this.Igv = igv;
             this.Estado = estado;
+            this.UsuarioCreacion_Ingreso = usuarioCreacion_Ingreso;
+            this.UsuarioUpdate_Ingreso = usuarioUpdate_Ingreso;
         }
+
+       
 
         //Métodos  
         public string Insertar(CD_Ingreso Ingreso, List<CD_DetalleIngreso> Detalles)
@@ -105,9 +122,9 @@ namespace CapaDatos
             try
             {
                 //Código 
-                SqlConnection cn = ConexionBD.Instancia.Conectar();
-                //SqlCon.ConnectionString = Conexion.Cn;
-                cn.Open();
+                // SqlConnection cn = ConexionBD.Instancia.Conectar();
+                SqlCon.ConnectionString = ConexionBD.Cn;
+                SqlCon.Open();
                 //Establecer la transacción  
                 SqlTransaction SqlTra = SqlCon.BeginTransaction();
                 //Establecer el Comando  
@@ -123,15 +140,10 @@ namespace CapaDatos
                 ParIdingreso.SqlDbType = SqlDbType.Int;
                 ParIdingreso.Direction = ParameterDirection.Output;
                 SqlCmd.Parameters.Add(ParIdingreso);
-
-                SqlParameter ParIdTrabajador = new SqlParameter();
-                ParIdTrabajador.ParameterName = "@Id_USuario";
-                ParIdTrabajador.SqlDbType = SqlDbType.Int;
-                ParIdTrabajador.Value = Ingreso.Id_USuario ;
-                SqlCmd.Parameters.Add(ParIdTrabajador);
+                              
 
                 SqlParameter ParIdproveedor = new SqlParameter();
-                ParIdproveedor.ParameterName = "@idproveedor";
+                ParIdproveedor.ParameterName = "@Id_Proveedor";
                 ParIdproveedor.SqlDbType = SqlDbType.Int;
                 ParIdproveedor.Value = Ingreso.Idproveedor;
                 SqlCmd.Parameters.Add(ParIdproveedor);
@@ -178,6 +190,18 @@ namespace CapaDatos
                 ParEstado.Size = 7;
                 ParEstado.Value = Ingreso.Estado;
                 SqlCmd.Parameters.Add(ParEstado);
+
+                SqlParameter ParUsuarioCreacion_Ingreso = new SqlParameter();
+                ParUsuarioCreacion_Ingreso.ParameterName = "@UsuarioCreacion_Ingreso";
+                ParUsuarioCreacion_Ingreso.SqlDbType = SqlDbType.Int;
+                ParUsuarioCreacion_Ingreso.Value = Ingreso.UsuarioCreacion_Ingreso;
+                SqlCmd.Parameters.Add(ParUsuarioCreacion_Ingreso);
+
+                SqlParameter ParUsuarioUpdate_Ingreso = new SqlParameter();
+                ParUsuarioUpdate_Ingreso.ParameterName = "@UsuarioUpdate_Ingreso";
+                ParUsuarioUpdate_Ingreso.SqlDbType = SqlDbType.Int;
+                ParUsuarioUpdate_Ingreso.Value = Ingreso.UsuarioUpdate_Ingreso;
+                SqlCmd.Parameters.Add(ParUsuarioUpdate_Ingreso);
 
 
                 //Ejecutamos nuestro comando  
@@ -266,7 +290,7 @@ namespace CapaDatos
         //Método Mostrar  
         public DataTable Mostrar()
         {
-            DataTable DtResultado = new DataTable("ingreso");
+            DataTable DtResultado = new DataTable("Tbl_Ingreso");
             //SqlConnection SqlCon = new SqlConnection();
             try
             {
@@ -292,7 +316,7 @@ namespace CapaDatos
         //Método BuscarFechas  
         public DataTable BuscarFechas(String TextoBuscar, String TextoBuscar2)
         {
-            DataTable DtResultado = new DataTable("ingreso");
+            DataTable DtResultado = new DataTable("Tbl_Ingreso");
             //SqlConnection SqlCon = new SqlConnection();
             try
             {
@@ -331,7 +355,7 @@ namespace CapaDatos
         //Método BuscarFechas  
         public DataTable MostrarDetalle(String TextoBuscar)
         {
-            DataTable DtResultado = new DataTable("detalle_ingreso");
+            DataTable DtResultado = new DataTable("Tbl_Detalle_ingreso");
            // SqlConnection SqlCon = new SqlConnection();
             try
             {

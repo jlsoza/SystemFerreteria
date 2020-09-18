@@ -136,9 +136,9 @@ namespace Ferreteria.MenuPrincipal
 
         private void btnproductos_Click(object sender, EventArgs e)
         {
-            Frm_Producto fm = new Frm_Producto();
-            //fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
-            AbrirFormEnPanel(fm);
+            //Frm_Producto fm = new Frm_Producto(UIC);
+            ////fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            //AbrirFormEnPanel(fm);
         }
 
         private void btnproveedor_Click(object sender, EventArgs e)

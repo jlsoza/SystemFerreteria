@@ -154,6 +154,7 @@
             this.txtpassword.Size = new System.Drawing.Size(225, 17);
             this.txtpassword.TabIndex = 8;
             this.txtpassword.UseSystemPasswordChar = true;
+            this.txtpassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpassword_KeyPress);
             // 
             // linkLabel1
             // 

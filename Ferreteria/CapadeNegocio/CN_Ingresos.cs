@@ -14,10 +14,14 @@ namespace CapadeNegocio
     {
         //Método Insertar que llama al método Insertar de la clase DIngreso  
         //de la CapaDatos  
-        public static string Insertar(int id_usuario, int idproveedor, DateTime fecha, int tipo_comprobante, string serie, string correlativo, decimal igv, string estado, DataTable dtDetalles)
+
+        public int UsuarioCreacion_Ingreso { get; set; }
+        public int UsuarioUpdate_Ingreso { get; set; }
+
+        public static string Insertar( int idproveedor, DateTime fecha, int tipo_comprobante, string serie, string correlativo, decimal igv, string estado,  int UsuarioCreacion_Ingreso, int UsuarioUpdate_Ingreso, DataTable dtDetalles)
         {
             CD_Ingreso Obj = new CD_Ingreso();
-            Obj.Id_USuario  = id_usuario;
+          
 
             Obj.Idproveedor = idproveedor;
             Obj.Fecha = fecha;
@@ -26,6 +30,10 @@ namespace CapadeNegocio
             Obj.Correlativo = correlativo;
             Obj.Igv = igv;
             Obj.Estado = estado;
+            Obj.UsuarioCreacion_Ingreso = UsuarioCreacion_Ingreso;
+            Obj.UsuarioUpdate_Ingreso  = UsuarioUpdate_Ingreso ;
+
+
             List<CD_DetalleIngreso> detalles = new List<CD_DetalleIngreso>();
             foreach (DataRow row in dtDetalles.Rows)
             {
@@ -34,7 +42,7 @@ namespace CapadeNegocio
                 detalle.Precio_Compra = Convert.ToDecimal(row["precio_compra"].ToString());
                 detalle.Precio_Venta = Convert.ToDecimal(row["precio_venta"].ToString());
                 detalle.Stock_Inicial = Convert.ToInt32(row["stock_inicial"].ToString());
-                detalle.Stock_Actual = Convert.ToInt32(row["stock_actual"].ToString());
+                detalle.Stock_Actual = Convert.ToInt32(row["stock_inicial"].ToString());
                 detalle.Fecha_Produccion = Convert.ToDateTime(row["fecha_produccion"].ToString());
                 detalle.Fecha_Vencimiento = Convert.ToDateTime(row["fecha_vencimiento"].ToString());
                 detalles.Add(detalle);
